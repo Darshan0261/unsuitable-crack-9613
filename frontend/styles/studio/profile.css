@@ -1,0 +1,90 @@
+body {
+  background-color: whitesmoke;
+}
+li {
+  list-style-type: none;
+  font-size: 25px;
+}
+
+.main li{
+    margin-bottom: 20px;
+}
+
+.profile-maindiv {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.profile-child-div {
+  width: 35%;
+  background-color: white;
+  border-radius: 10px;
+}
+.profile-ul > div:first-child {
+  margin-top: 10%;
+}
+.profile-child-div img {
+  width: 50%;
+  margin-left: 25%;
+  padding: 6% 0%;
+}
+.profile-child-div > button {
+  background-color: #111;
+  color: white;
+  padding: 3% 4%;
+  border-radius: 5px;
+  margin-left: 38%;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.profile-child-div > button:hover {
+  border: 6px solid #111;
+  background-color: #111111ee;
+  padding: 2% 3.1%;
+}
+
+.profile-other-info {
+  width: 55%;
+}
+
+.profile-other-info-1,
+.profile-other-info-2 {
+  width: 100%;
+}
+
+.more-info {
+  background-color: white;
+}
+
+.more-info > h2 {
+  padding-top: 5%;
+  padding-left: 5%;
+  margin-bottom: 5%;
+}
+
+.more-info-childs {
+  display: flex;
+}
+
+.more-info-childs > div {
+  margin-left: 30px;
+}
+
+.more-info-childs > li > span {
+  font-size: 32px;
+}
+
+li~div{
+    font-size: 22px;
+}
+
+.greenli{
+    color: #7bdb82;
+}
+.pinkli{
+    color: #ff6f6f;
+}
