@@ -32,18 +32,18 @@
             <ul class="profile-ul">
               <div class="more-info-childs">
                 <li><i class="fa-solid fa-user greenli"></i></li>
-                <div>Name</div>
+                <div>Ananya</div>
               </div>
               <div class="more-info-childs">
                 <li><i class="fa-solid fa-users-rays pinkli"></i></li>
-                <div>No. of clients</div>
+                <div>Clients: <b>50+</b></div>
               </div>
               <div class="more-info-childs">
                 <li><i class="fa-solid fa-phone greenli"></i></li>
-                <div>6531212</div>
+                <div>6289020032</div>
               </div>
             </ul>
-            <button>Edit Profile</button>
+            <button onclick="editProfileForm()">Edit Profile</button>
           </div>
           <div class="profile-other-info">
             <div class="profile-other-info-1">
@@ -52,19 +52,19 @@
                 <ul>
                   <div class="more-info-childs">
                     <li><i class="fa-solid fa-venus-mars pinkli"></i></li>
-                    <div>female</div>
+                    <div>Female</div>
                   </div>
                   <div class="more-info-childs">
                     <li><i class="fa-sharp fa-solid fa-calendar-days greenli"></i></li>
-                    <div>dob</div>
+                    <div>22</div>
                   </div>
                   <div class="more-info-childs">
                     <li><span class="material-symbols-outlined pinkli">local_police</span></li>
-                    <div>role</div>
+                    <div>Photographer</div>
                   </div>
                   <div class="more-info-childs">
                     <li><i class="fa-sharp fa-solid fa-house greenli"></i></li>
-                    <div>city</div>
+                    <div>Kolkata</div>
                   </div>
                 </ul>
               </div>
@@ -75,19 +75,15 @@
                 <ul>
                   <div class="more-info-childs">
                     <li><i class="pinkli fa-sharp fa-regular fa-clock"></i></li>
-                    <div>time</div>
-                  </div>
-                  <div class="more-info-childs">
-                    <li><i class="greenli fa-sharp fa-solid fa-calendar-days"></i></li>
-                    <div>dob</div>
+                    <div>10:00 - 17:00</div>
                   </div>
                   <div class="more-info-childs">
                     <li><i class="fa-solid fa-briefcase pinkli"></i></li>
-                    <div>Studio name</div>
+                    <div>BookMyShoot Studio</div>
                   </div>
                   <div class="more-info-childs">
                     <li><i class="greenli fa-sharp fa-solid fa-house"></i></li>
-                    <div>Office address</div>
+                    <div>D-128 D.M.Bagan, Kolkata-700024</div>
                   </div>
                 </ul>
               </div>
@@ -96,6 +92,42 @@
         </div>
       </div>
     </section>
+
+     <!-- !-------------------------------- POPUP PAGE ------------------------------ -->
+     <section>        
+      <div class="bg-model">
+          <div class="model-content">
+              <div class="top_part">
+                <div class="header">Edit your profile</div>
+                <div class="close" onclick="closeProfileForm()"><span class="material-symbols-outlined">close</span></div>
+              </div>
+              <hr>
+              <form action="">
+                <div class="profile_details">
+                  <label>Name</label>
+                  <input type="text" class="mrgn-btm edit-name" placeholder="Enter your name">
+                  <label>Mobile Number</label>
+                  <input type="text" class="mrgn-btm phone_number" placeholder="Enter new phone number">
+                  <label>Gender</label>
+                      <select class="mrgn-btm" name="gender" id="">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                      </select>
+                      <label>DOB:</label>
+                      <input type="date"  class="mrgn-btm"  placeholder="dob"/>
+                      <label>City</label>
+                      <input type="text"  class="mrgn-btm"  placeholder="Enter the new city" />
+                    </div>
+                  <hr>
+                  <div class="button_div">
+                      <button class="close_bt" onclick="closeProfileForm()">Cancel</button>
+                      <input class="submit_bt" value="Edit" type="submit">
+                  </div>
+              </form>
+          </div>
+      </div>
+  </section>
 
     <script src="../../scripts/studio/profile.js"></script>
   </body>
