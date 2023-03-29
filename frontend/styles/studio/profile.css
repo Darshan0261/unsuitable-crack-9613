@@ -6,8 +6,8 @@ li {
   font-size: 25px;
 }
 
-.main li{
-    margin-bottom: 20px;
+.main li {
+  margin-bottom: 20px;
 }
 
 .profile-maindiv {
@@ -18,7 +18,7 @@ li {
 }
 
 .profile-child-div {
-  width: 35%;
+  width: 40%;
   background-color: white;
   border-radius: 10px;
 }
@@ -48,7 +48,7 @@ li {
 }
 
 .profile-other-info {
-  width: 55%;
+  width: 50%;
 }
 
 .profile-other-info-1,
@@ -78,13 +78,42 @@ li {
   font-size: 32px;
 }
 
-li~div{
-    font-size: 22px;
+li ~ div {
+  font-size: 22px;
 }
 
-.greenli{
-    color: #7bdb82;
+.greenli {
+  color: #7bdb82;
 }
-.pinkli{
-    color: #ff6f6f;
+.pinkli {
+  color: #ff6f6f;
+}
+
+/* ------------medium screen------------------- */
+
+@media only screen and (min-width: 800px) and (max-width: 991px) {
+  .profile-child-div{
+    width: 50%;
+  }
+
+  .profile-other-info {
+    width: 45%;
+  }
+}
+
+/* ------------small screen------------------- */
+@media only screen and (max-width: 800px) {
+    .profile-maindiv {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+      }
+      .profile-child-div > button{
+        margin-bottom: 5%;
+      }
+
+      .profile-child-div,.profile-other-info{
+        width: 100%;
+      }
 }
