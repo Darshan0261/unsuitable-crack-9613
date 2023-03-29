@@ -13,7 +13,7 @@ const { default: mongoose } = require('mongoose');
 const studioRouter = express.Router();
 
 // Get all studios
-studioRouter.get('/', authentication, async (req, res) => {
+studioRouter.get('/', async (req, res) => {
     try {
         const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }]);
         res.send(studios)
@@ -23,7 +23,7 @@ studioRouter.get('/', authentication, async (req, res) => {
 })
 
 // Get specific studio
-studioRouter.get('/:id', authentication, async (req, res) => {
+studioRouter.get('/:id', async (req, res) => {
     const id = req.params['id'];
     try {
         const ObjectId = mongoose.Types.ObjectId;
