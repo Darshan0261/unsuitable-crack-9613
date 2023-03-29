@@ -4,10 +4,14 @@ const { redisClient } = require('./configs/redis')
 const { userRouter } = require('./routes/Users.router');
 const { studioRouter } = require('./routes/Studio.router');
 const { appointmentRouter } = require('./routes/Appointment.router');
+const cors=require("cors");
+
 require('dotenv').config()
 
 const app = express();
-
+app.use(cors({
+    origin:"*"
+}))
 app.use(express.json())
 
 app.get('/', (req, res) => {
