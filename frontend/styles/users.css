@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: #f3f5f9;
+}
+
+.main-cont {
+    display: flex;
+    /* justify-content: space-around; */
+    position: relative;
+}
+
+.child1 {
+    width: 20%;
+    height: 100vh;
+    /* border: 1px solid red; */
+    background: rgb(1, 92, 146);
+    padding: 40px;
+}
+
+.child1 h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-right: 100px;
+}
+
+.child1 ul li {
+    padding: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(225, 225, 225, 0.05);
+    color: #fff;
+}
+
+.child1 ul li a {
+    color: #bdb8d7;
+    display: block;
+    font-size: 16px;
+}
+
+.child1 ul li a .fas {
+    width: 20px;
+
+}
+
+.child1 ul li a .far {
+    width: 20px;
+}
+
+.child1 ul li a .fab {
+    width: 20px;
+}
+
+.child1 ul li:hover {
+    background: #594f8d;
+}
+
+.child1 ul li:hover a {
+    color: #fff;
+}
+
+#child1btn {
+    margin-top: 130px;
+    margin-left: 25px;
+}
+
+#child1btn button {
+    width: 85px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
+
+.child2 {
+    width: 80%;
+    height: 100vh;
+    border: 1px solid red;
+}
+
+
+
+#inner>h2 {
+
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+}
+
+#inner>button {
+    width: 200px;
+    padding: 14px;
+    border-radius: 8px;
+    margin-left: 6px;
+    background-color: rgb(1, 92, 146);
+    color: #fff;
+    font-size: 18px;
+    border: 1px solid white;
+}
+
+.middle {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 70px;
+    border: 1px solid red;
+    height: 300px;
+}
+
+.middle1 {
+    border: 1px solid blue;
+}
+
+.middle1 h2 {
+    margin: auto;
+    text-align: center;
+}
+
+.middle2 {
+    border: 1px solid blue;
+}
+
+.middle2 h2 {
+    margin: auto;
+    text-align: center;
+}
+
+.middle3 {
+    border: 1px solid pink;
+}
+
+.middle3 h2{
+    margin: auto;
+    text-align: center;
+}
+
+.middle4 {
+    border: 1px solid violet;
+}
+
+.middle4 h2{
+    margin: auto;
+    text-align: center;
+}
