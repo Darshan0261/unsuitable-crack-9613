@@ -29,8 +29,8 @@ studioRouter.get('/', async (req, res) => {
             const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }, { $match: { city: city } }]);
             return res.send(studios)
         }
-        const studios = await StudioModel.find();
-        return res.send(studios)
+        const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }]);
+            return res.send(studios)
     } catch (error) {
         res.status(501).send({ message: error.message })
     }
