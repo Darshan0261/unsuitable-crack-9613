@@ -13,17 +13,31 @@ const { default: mongoose } = require('mongoose');
 const studioRouter = express.Router();
 
 // Get all studios
-studioRouter.get('/', authentication, async (req, res) => {
+studioRouter.get('/', async (req, res) => {
+    const { city, sort } = req.query;
+    console.log(sort)
     try {
-        const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }]);
-        res.send(studios)
+        if (sort) {
+            if (city) {
+                const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }, { $match: { city: city } }, { $sort: { price: +sort } }]);
+                return res.send(studios)
+            }
+            const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }, { $sort: { price: +sort } }]);
+            return res.send(studios)
+        }
+        if(city) {
+            const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }, { $match: { city: city } }]);
+            return res.send(studios)
+        }
+        const studios = await StudioModel.find();
+        return res.send(studios)
     } catch (error) {
         res.status(501).send({ message: error.message })
     }
 })
 
 // Get specific studio
-studioRouter.get('/:id', authentication, async (req, res) => {
+studioRouter.get('/:id', async (req, res) => {
     const id = req.params['id'];
     try {
         const ObjectId = mongoose.Types.ObjectId;
