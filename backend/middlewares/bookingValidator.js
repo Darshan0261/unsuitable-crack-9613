@@ -21,7 +21,7 @@ const studioIdValidator = async (req, res, next) => {
 }
 
 const bookingDayValidator = (req, res, next) => {
-    let { date, start_time, end_time } = req.body;
+    let { date } = req.body;
     let bookingDay = date.getDay();
     const { studio } = req.body;
     // Check if booking slot is in studio working day
@@ -45,8 +45,8 @@ const bookingTimeValidator = (req, res, next) => {
     studioStartTime = studioStartTime[0] * 60 * 60 + studioStartTime[1] * 60 + studioStartTime[2];
     let studioEndTime = studio.end_time.split(':').map(Number)
     studioEndTime = studioEndTime[0] * 60 * 60 + studioEndTime[1] * 60 + studioEndTime[2];
-    if (bookingStartTime <= studioStartTime) {
-        if (bookingEndTime >= studioEndTime) {
+    if (bookingStartTime >= studioStartTime) {
+        if (bookingEndTime <= studioEndTime) {
             req.body.bookingTiming = { bookingStartTime, bookingEndTime }
             next()
         } else {
