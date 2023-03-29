@@ -1,7 +1,7 @@
 .album-parent {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
 }
 
 a {
@@ -29,3 +29,26 @@ a {
   filter: grayscale(1);
   transform: scale(1.03);
 }
+
+
+/* ------------medium screen------------------- */
+
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .album-parent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3%;
+  }
+}
+
+/* ------------small screen------------------- */
+@media only screen and (max-width: 920px) {
+  .album-parent {
+    grid-template-columns: repeat(1, 1fr);
+    gap:1%;
+  }
+
+  
+
+}
+
+
