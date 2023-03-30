@@ -10,7 +10,7 @@ async function dashboard() {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDIyYjZiYTU3OGFjYzhmOGYxZjk0OTgiLCJpYXQiOjE2ODAxNzc4Mjd9.IWjAJtgFADp1nBWPNnUeKdR82zzYAv6v9SetLVBbS5w"
+                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDIyYjZiYTU3OGFjYzhmOGYxZjk0OTgiLCJpYXQiOjE2ODAyMDc2OTF9.YQDB6oN9k93VvySFR_adl5oLKvWOyTpOII-7z47ObUs"
             }
         });
     } catch (error) {
