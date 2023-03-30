@@ -71,10 +71,10 @@ const bookingSlotValidator = async (req, res, next) => {
                 let end_time = appointment.end_time.split(':').map(Number);
                 let appointmentEndTime = end_time[0] * 100 + end_time[1];
 
-                if (bookingStartTime >= appointmentStartTime && bookingStartTime < appointmentEndTime) {
+                if (bookingStartTime >= appointmentStartTime && bookingStartTime <= appointmentEndTime) {
                     flag = false;
                 }
-                if (bookingEndTime > appointmentStartTime && bookingEndTime <= appointmentEndTime) {
+                if (bookingEndTime >= appointmentStartTime && bookingEndTime <= appointmentEndTime) {
                     flag = false;
                 }
             })
