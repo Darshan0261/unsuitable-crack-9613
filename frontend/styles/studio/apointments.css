@@ -1,3 +1,6 @@
+body{
+    background-color: whitesmoke;
+}
 .appointment-parent > p {
   font-size: 30px;
   font-weight: 700;
@@ -144,29 +147,28 @@
   transition: 800ms ease all;
 }
 
-/* ?================== media query ===================== */
-/* Section One*/
 
-th {
-  background: #c5c5c5;
-}
+/* ?===================== TABLE ====================== */
+/* Section One*/
 table {
-  border-collapse: collapse;
-  border: 1px solid #cdcdcd;
-  font: normal 12px arial;
-  width: 100%;
+    border-collapse: collapse;
+    /* border: 1px solid #cdcdcd; */
+    font: normal 12px ;
+    width: 100%;
+    background-color: white;
 }
 td,
 th {
-  border: 1px solid #cdcdcd;
-  padding: 2px;
+    border: 2px solid #cdcdcd;
+    padding: 0.2% 0% 0.2% 0.4%;
 }
 
+/* ?================== media query ===================== */
 /* Section two*/
 
 @media only screen and (max-width: 760px),
-  (min-device-width: 768px) and (max-device-width: 1024px) {
-  /* Section three*/
+(min-device-width: 280px) and (max-device-width: 1024px) {
+    /* Section three*/
   table,
   thead,
   tbody,
@@ -231,15 +233,13 @@ th {
 
 /* Section seven*/
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  body {
-    padding: 0;
-    margin: 0;
-    width: 320px;
+  table{
+    width: 100%;
   }
 }
 /* Section eight*/
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  body {
-    width: 495px;
-  }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1204px) {
+    table{
+        width: 100%;
+    }
 }
