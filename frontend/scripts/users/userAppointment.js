@@ -1,11 +1,11 @@
 
-  var currentDate = new Date();
+var currentDate = new Date();
 //   console.log(currentDate)
-  var dateString = currentDate.toDateString();
-  document.getElementById("currentDate").innerText = dateString;
+var dateString = currentDate.toDateString();
+document.getElementById("currentDate").innerText = dateString;
 
 
-  async function dashboard() {
+async function dashboard() {
 
     let res;
     try {
@@ -20,9 +20,6 @@
         console.log(error);
     }
     let out = await res.json();
-
-
-    
     console.log(out);
     display1(out);
 }
@@ -31,40 +28,65 @@
 dashboard();
 
 
-  let tablebody=document.querySelector("#tbody");
+let tablebody = document.querySelector("#tbody");
 
 
-  function display1(out){
-       out.forEach((ele)=>{
-        let row=document.createElement("tr");
+function display1(out) {
+    out.forEach((ele) => {
+        let row = document.createElement("tr");
 
-        let studioId=document.createElement("td");
-        studioId.innerText=ele.studio_id;
+        let studioId = document.createElement("td");
+        studioId.innerText = ele.studio_id;
 
-        let startTime=document.createElement("td");
-        startTime.innerText=ele.start_time;
+        let startTime = document.createElement("td");
+        startTime.innerText = ele.start_time;
 
-        let endTime=document.createElement("td");
-        endTime.innerText=ele.end_time;
+        let endTime = document.createElement("td");
+        endTime.innerText = ele.end_time;
 
-        let date=document.createElement("td");
-        date.innerText=ele.date;
+        let date = document.createElement("td");
+        date.innerText = ele.date;
 
-        let status=document.createElement("td");
-        status.innerText=ele.status;
+        let status = document.createElement("td");
+        status.innerText = ele.status;
 
-        let bill=document.createElement("td");
-        bill.innerText=ele.bill;
 
-        let button=document.createElement("button");
-        button.className="cancelbtn"
-        button.innerText="Cancel";
+        let bill = document.createElement("td");
+        bill.innerText = ele.bill;
 
-        row.append(studioId,startTime,endTime,date,status,bill,button);
+        let button = document.createElement("button");
+        button.className = "cancelbtn"
+        button.innerText = "Cancel";
+        button.addEventListener("click", () => {
+            status.innerText = "Rejected";
+            updatestatus(status.innerText, ele.user_id);
+            // console.log(status.innerText);
+        })
+
+        row.append(studioId, startTime, endTime, date, status, bill, button);
 
         tablebody.append(row);
-       })
-  }
+    })
+
+    async function updatestatus(data, data1) {
+        console.log(data, data1)
+        let res;
+        try {
+            res = await fetch(`http://localhost:4500/appointment/${data1}`, {
+                body: JSON.stringify({ status: data }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                method: "POST"
+            });
+        } catch (error) {
+            console.log(error);
+        }
+        let out = await res.json();
+        console.log(out);
+
+    }
+}
 
 
 
