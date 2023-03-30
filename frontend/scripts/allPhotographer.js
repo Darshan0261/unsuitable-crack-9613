@@ -19,6 +19,7 @@ let fetching_data = async (city,sort) => {
     console.log(data);
     renderData(data);
 }
+
     }
     
 fetching_data();
