@@ -2,15 +2,15 @@ const express = require('express');
 const { authentication } = require('../middlewares/authentication.middleware');
 const { userAuth, studioAuth } = require('../middlewares/authorization.middleware');
 const { AppointmentModel } = require('../models/Appoinment.model');
-const { bookingRouter } = require('./Booking.router')
 
 const appointmentRouter = express.Router();
 
-appointmentRouter.use('/book', bookingRouter)
 
+// Get all appointments
 appointmentRouter.get('/', authentication, async (req, res) => {
     const { status } = req.query;
     const { token } = req.body;
+    
     if (token.role == 'studio') {
         try {
             if (status) {
@@ -36,13 +36,43 @@ appointmentRouter.get('/', authentication, async (req, res) => {
     }
 })
 
-appointmentRouter.patch('/update/status/:id', authentication, studioAuth, async (req, res) => {
+// Accept Appointment
+appointmentRouter.patch('/accept/:id', authentication, studioAuth, async (req, res) => {
     const { token, status } = req.body;
     const studio_id = token.id;
     const id = req.params['id'];
+    if (!status) {
+        return res.status(428).send({ message: 'Status is required' })
+    }
     try {
-        await AppointmentModel.findOneAndUpdate({ _id: id, studio_id }, { status })
-        res.send({ message: 'Appointment Status Updated Successfully' });
+
+        const appointment = await AppointmentModel.findOne({ _id: id, studio_id });
+
+        let start_time = appointment.start_time.split(':').map(Number);
+        start_time = start_time[0] * 100 + start_time[1];
+        let end_time = appointment.end_time.split(':').map(Number);
+        end_time = end_time[0] * 100 + end_time[1];
+
+        const appointments = await AppointmentModel.find({ studio_id, date: appointment.date, status: 'Accepted' })
+
+        let flag = true;
+
+        appointments.forEach(appointment => {
+            let app_start_time = appointment.start_time.split(':').map(Number);
+            app_start_time = app_start_time[0] * 100 + app_start_time[1];
+            let app_end_time = appointment.end_time.split(':').map(Number);
+            app_end_time = app_end_time[0] * 100 + app_end_time[1];
+            if (app_start_time <= start_time && app_end_time >= end_time) {
+                flag = false;
+            }
+        })
+        if (flag) {
+            await AppointmentModel.findOneAndUpdate({ _id: id, studio_id }, { status })
+            return res.send({ message: 'Appointment Status Updated Successfully' });
+        } else {
+            return res.status(404).send({ message: 'Appointment Slot Already Booked' })
+        }
+
     } catch (error) {
         res.status(501).send({ message: error.message });
     }
