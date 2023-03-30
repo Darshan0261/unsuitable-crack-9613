@@ -31,7 +31,13 @@ body{
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
+  width: 100px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
 }
+
 .btn-3 {
   background: rgb(0, 172, 238);
   background: linear-gradient(
@@ -39,11 +45,6 @@ body{
     rgba(0, 172, 238, 1) 0%,
     rgba(2, 126, 251, 1) 100%
   );
-  width: 130px;
-  height: 40px;
-  line-height: 42px;
-  padding: 0;
-  border: none;
 }
 .btn-3 span {
   position: relative;
@@ -105,11 +106,6 @@ body{
   width: 100%;
 }
 .btn-5 {
-  width: 130px;
-  height: 40px;
-  line-height: 42px;
-  padding: 0;
-  border: none;
   background: rgb(255, 27, 0);
   background: linear-gradient(
     0deg,
@@ -160,13 +156,13 @@ table {
 td,
 th {
     border: 2px solid #cdcdcd;
-    padding: 0.2% 0% 0.2% 0.4%;
+    padding: 0.2% 0.2% 0.2% 0.4%;
 }
 
 /* ?================== media query ===================== */
 /* Section two*/
 
-@media only screen and (max-width: 760px),
+@media only screen and (max-width: 980px),
 (min-device-width: 280px) and (max-device-width: 1024px) {
     /* Section three*/
   table,
