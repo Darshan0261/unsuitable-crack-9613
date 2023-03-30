@@ -10,6 +10,7 @@ const appointmentRouter = express.Router();
 appointmentRouter.get('/', authentication, async (req, res) => {
     const { status } = req.query;
     const { token } = req.body;
+    
     if (token.role == 'studio') {
         try {
             if (status) {
