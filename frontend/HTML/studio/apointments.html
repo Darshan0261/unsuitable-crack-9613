@@ -3,7 +3,7 @@
   <head>
     <title>Photography Management System</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="stylesheet" href="../../styles/studio/albums.css" />
+    <link rel="stylesheet" href="../../styles/studio/apointments.css" />
     <link rel="stylesheet" href="../../styles/studio/navbar.css" />
     <link rel="icon" href="../../images/logo-without-bg.png" type="image/x-icon">
   </head>
@@ -28,7 +28,7 @@
           <p>Appointment Details</p>
           <div class="appointment-child">
             <table>
-              <tr>
+              <thead>
                 <th>Client Name</th>
                 <th>Mobile Number</th>
                 <th>Location</th>
@@ -37,17 +37,17 @@
                 <th>Duration (hrs)</th>
                 <th>Pending</th>
                 <th>Delete</th>
-              </tr>
-              <tr>
-                <td>Ananya</td>
+              </thead>
+              <tbody>
+                <td>Ananya Kumari Singh</td>
                 <td>6289020032</td>
                 <td>Garden Reach Lake</td>
                 <td>2023-04-20</td>
                 <td>5:00 PM</td>
                 <td>2 hrs</td>
-                <td>Accept</td>
-                <td>Reject</td>
-              </tr>
+                <td><button class="custom-btn btn-3"><span>Accept</span></button></td>
+                <td><button class="custom-btn btn-5"><span>Reject</span></button></td>
+              </tbody>
             </table>
           </div>
         </div>
