@@ -1,0 +1,89 @@
+ /* <!------------------- navigation bar start ------------> */
+
+ *{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(12, 12, 12);
+    height: 75px;
+    color: white;
+    padding:0px 50px 0px 50px;
+}
+.part1{
+    display: flex;
+  
+}
+
+.part1>div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+}
+
+.part1>div>p{
+    margin-left: 20px;
+}
+
+.part2{
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.nav-button,.top-button{
+    padding: 15px 25px 15px 25px;
+    font-weight: 700;
+    border-radius: 20px;
+    border: 0px;
+    font-weight: 600;
+}
+
+.nav-button:hover,.top-button:hover{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 75, 75);
+}
+
+ /* <!------------------- navigation bar end ------------> */
+
+ 
+/* --------------footer part ---------------*/
+
+.footer{
+    background-color: rgb(12, 12, 12);
+    color: white;
+    padding: 30px;
+    
+}
+.footer>div{
+    
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+hr{
+    margin: 10px;
+}
+.footer>p{
+    text-align: center;
+}
+#ftext{
+    text-align: start;
+    font-family: "Open Sans", Roboto, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 50px;
+    color: rgb(255, 255, 255);
+
+
+}
