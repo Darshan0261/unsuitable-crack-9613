@@ -11,6 +11,7 @@ const { bookingDayValidator, bookingTimeValidator, bookingSlotValidator } = requ
 const { StudioModel } = require('../models/Studio.model');
 const { AppointmentModel } = require('../models/Appoinment.model')
 const { default: mongoose } = require('mongoose');
+const { BlacklistModel } = require('../models/Blacklist.model');
 
 const studioRouter = express.Router();
 
@@ -97,6 +98,21 @@ studioRouter.post('/login', async (req, res) => {
         });
     } catch (error) {
         return res.status(500).send({ message: 'Something went wrong' });
+    }
+})
+
+// Studio Logout
+studioRouter.post('/logout', authentication, studioAuth, async (req, res) => {
+    let { token } = req.body;
+    const studio_id = token.id;
+    token = req.headers.authorization;
+    try {
+        const blacklist = await BlacklistModel.findOne({ studio_id });
+        blacklist.tokens.push(token);
+        await blacklist.save();
+        return res.send({ message: 'Logout Successfull' })
+    } catch (error) {
+        return res.status(500).send({ message: error.message });
     }
 })
 

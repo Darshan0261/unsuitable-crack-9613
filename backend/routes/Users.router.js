@@ -4,7 +4,10 @@ const jwt = require('jsonwebtoken')
 
 require('dotenv').config()
 
-const { UserModel } = require('../models/Users.model')
+const { UserModel } = require('../models/Users.model');
+const { authentication } = require('../middlewares/authentication.middleware');
+const { BlacklistModel } = require('../models/Blacklist.model');
+const { userAuth } = require('../middlewares/authorization.middleware');
 
 const userRouter = express.Router();
 
@@ -22,6 +25,8 @@ userRouter.post('/signup', async (req, res) => {
             try {
                 const user = new UserModel({ name, password: hashedPass, mobile })
                 await user.save();
+                const blacklist = new BlacklistModel({ user_id: user._id })
+                await blacklist.save()
                 return res.send({ message: 'User signup sucessfull' })
             } catch (error) {
                 return res.status(500).send({ message: error.message });
@@ -41,7 +46,7 @@ userRouter.post('/login', async (req, res) => {
         }
         bcrypt.compare(password, user.password, function (err, result) {
             if (err) {
-                return res.status(500).send({ message: 'Something went wrong' });
+                return res.status(500).send({ message: err.message });
             }
             if (!result) {
                 return res.status(401).send({ message: 'Wrong Credentials' });
@@ -50,7 +55,21 @@ userRouter.post('/login', async (req, res) => {
             res.send({ message: 'Login Sucessfull', token })
         });
     } catch (error) {
-        return res.status(500).send({ message: 'Something went wrong' });
+        return res.status(500).send({ message: error.message });
+    }
+})
+
+userRouter.post("/logout", authentication, userAuth, async (req, res) => {
+    let { token } = req.body;
+    const user_id = token.id;
+    token = req.headers.authorization;
+    try {
+        const blacklist = await BlacklistModel.findOne({ user_id });
+        blacklist.tokens.push(token);
+        await blacklist.save();
+        return res.send({ message: 'Logout Successfull' })
+    } catch (error) {
+        return res.status(500).send({ message: error.message });
     }
 })
 

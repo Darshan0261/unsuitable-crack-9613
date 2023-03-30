@@ -10,7 +10,7 @@ const appointmentRouter = express.Router();
 appointmentRouter.get('/', authentication, async (req, res) => {
     const { status } = req.query;
     const { token } = req.body;
-    
+
     if (token.role == 'studio') {
         try {
             if (status) {
@@ -68,13 +68,40 @@ appointmentRouter.patch('/accept/:id', authentication, studioAuth, async (req, r
         })
         if (flag) {
             await AppointmentModel.findOneAndUpdate({ _id: id, studio_id }, { status })
-            return res.send({ message: 'Appointment Status Updated Successfully' });
+            return res.send({ message: 'Appointment Accepted' });
         } else {
             return res.status(404).send({ message: 'Appointment Slot Already Booked' })
         }
 
     } catch (error) {
         res.status(501).send({ message: error.message });
+    }
+})
+
+
+// Reject or cancel appointment
+appointmentRouter.patch('/reject/:id', authentication, async (req, res) => {
+    const { token } = req.body;
+    const { id } = req.params;
+    const role = token.role;
+    if (role == 'studio') {
+        const studio_id = token.id;
+        const appointment = await AppointmentModel.findOne({ _id: id, studio_id });
+        if (appointment) {
+            await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Rejected' })
+            return res.send({ message: 'Appointment Rejected' })
+        } else {
+            return res.status(401).send({ message: 'Access Denied' })
+        }
+    } else {
+        const user_id = token.id;
+        const appointment = await AppointmentModel.findOne({ _id: id, user_id });
+        if (appointment) {
+            await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Rejected' })
+            return res.send({ message: 'Appointment Cancelled' })
+        } else {
+            return res.status(401).send({ message: 'Access Denied' })
+        }
     }
 })
 

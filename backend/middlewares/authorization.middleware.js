@@ -1,5 +1,6 @@
+const { BlacklistModel } = require("../models/Blacklist.model");
 
-const userAuth = (req, res, next) => {
+const userAuth = async (req, res, next) => {
     const {token} = req.body;
     if(token.role == 'user') {
         next()
