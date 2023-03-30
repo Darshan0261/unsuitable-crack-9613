@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: #f3f5f9;
+}
+
+.main-cont {
+    display: flex;
+    /* justify-content: space-around; */
+    position: relative;
+}
+
+.child1 {
+    width: 20%;
+    height: 100vh;
+    /* border: 1px solid red; */
+    background: rgb(1, 92, 146);
+    padding: 40px;
+}
+
+.child1 h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-right: 100px;
+}
+
+.child1 ul li {
+    padding: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(225, 225, 225, 0.05);
+    color: #fff;
+}
+
+.child1 ul li a {
+    color: #bdb8d7;
+    display: block;
+    font-size: 16px;
+}
+
+.child1 ul li a .fas {
+    width: 20px;
+
+}
+
+.child1 ul li a .far {
+    width: 20px;
+}
+
+.child1 ul li a .fab {
+    width: 20px;
+}
+
+.child1 ul li:hover {
+    background: #594f8d;
+}
+
+.child1 ul li:hover a {
+    color: #fff;
+}
+
+#child1btn {
+    margin-top: 130px;
+    margin-left: 25px;
+}
+
+#child1btn button {
+    width: 85px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.up {
+    display: flex;
+    justify-content: end;
+    border: 1px solid green;
+    /* position: absolute; */
+    right: 0;
+}
+
+.sel1 {
+    /* border: 1px solid blue; */
+    margin-top: 30px;
+    margin-right: 80px;
+    border: 1px solid white;
+}
+
+#filter {
+    width: 140px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: burlywood;
+
+}
+
+.dat {
+    margin-top: 30px;
+    margin-right: 80px;
+    width: 180px;
+    padding: 12px;
+    border: 1px solid black;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background-color: burlywood;
+    /* float: right; */
+}
+
+.child2 {
+    width: 80%;
+    height: 100vh;
+    border: 1px solid red;
+    display: flex;
+    display: inline;
+}
+.mid{
+    border: 1px solid blue;
+    margin-top: 60px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 88%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
