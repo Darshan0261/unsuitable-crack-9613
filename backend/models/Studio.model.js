@@ -43,11 +43,11 @@ const StudioSchema = new mongoose.Schema({
         type: [{type: Number, enum: [0,1,2,3,4,5,6]}],
         required: true
     },
-    start_hour: {
-        type: String,
+    start_time: {
+        type: String, // hh:mm
         required: true
     },
-    end_hour: {
+    end_time: {
         type: String,
         required: true
     }

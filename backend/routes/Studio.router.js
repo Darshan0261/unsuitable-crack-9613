@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const { authentication } = require('../middlewares/authentication.middleware')
 const { studioAuth, userAuth } = require('../middlewares/authorization.middleware')
+const { studioIdValidator } = require('../middlewares/studioIdValidator')
+const { bookingDayValidator, bookingTimeValidator, bookingSlotValidator } = require('../middlewares/bookingValidator')
 
 const { StudioModel } = require('../models/Studio.model');
 const { AppointmentModel } = require('../models/Appoinment.model')
@@ -25,12 +27,12 @@ studioRouter.get('/', async (req, res) => {
             const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }, { $sort: { price: +sort } }]);
             return res.send(studios)
         }
-        if(city) {
+        if (city) {
             const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }, { $match: { city: city } }]);
             return res.send(studios)
         }
         const studios = await StudioModel.aggregate([{ $project: { pass: 0, role: 0 } }]);
-            return res.send(studios)
+        return res.send(studios)
     } catch (error) {
         res.status(501).send({ message: error.message })
     }
@@ -95,6 +97,32 @@ studioRouter.post('/login', async (req, res) => {
         });
     } catch (error) {
         return res.status(500).send({ message: 'Something went wrong' });
+    }
+})
+
+
+// Get slots booked for date
+studioRouter.get('/slots/:id', studioIdValidator, bookingDayValidator, async (req, res) => {
+    const { date } = req.body;
+    const { id } = req.params;
+    try {
+        const appointments = await AppointmentModel.aggregate([{ $match: { studio_id: id, date: date, status: 'Accepted' } }, { $project: { start_time: 1, end_time: 1 } }]);
+        return res.send(appointments)
+    } catch (error) {
+        return res.status(501).send({ message: error.message })
+    }
+})
+
+
+// Book slot body = date, start_time, end_time, params = id : studio_id
+studioRouter.post('/slots/book/:id', authentication, userAuth, studioIdValidator, bookingDayValidator, bookingTimeValidator, bookingSlotValidator, async (req, res) => {
+    const { studio, date, start_time, end_time, bill, token } = req.body;
+    try {
+        const appointment = new AppointmentModel({ date, bill, start_time, end_time, studio_id: studio._id, user_id: token.id });
+        await appointment.save();
+        return res.send({ message: 'Appointment Request Sent' });
+    } catch (error) {
+        return res.send({ message: error.message })
     }
 })
 
