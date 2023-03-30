@@ -4,132 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Studio</title>
+    <title>Strike a Pose</title>
+    <link rel="stylesheet" href="styles/navbar-footer.css">
     <link rel="stylesheet" href="styles/index.css">
-    <style>
-        *{
-            margin: 0px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        nav{
-          
-            display: flex;
-            justify-content: space-between;
-            background-color: rgb(12, 12, 12);
-            height: 75px;
-            color: white;
-            padding:0px 50px 0px 50px;
-        }
-        .part1{
-            display: flex;
-          
-        }
-        .part1>div{
 
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-          
-        }
-        .part1>div>p{
-            margin-left: 20px;
-        }
-        .part2{
-            width: 20%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        
-       }
-       .nav-button{
-            padding: 15px 25px 15px 25px;
-            font-weight: 700;
-            border-radius: 20px;
-            border: 0px;
-            font-weight: 600;
-       }
-       .nav-button:hover{
-            cursor: pointer;
-            color: rgb(255, 255, 255);
-            background-color: rgb(79, 75, 75);
-       }
-       .top{
-        background-image: url("https://d2ub1k1pknil0e.cloudfront.net/media/images/camera-photography.2e16d0ba.fill-1200x630.format-jpeg.jpg"); 
-        background-color: #b0aa44; 
-        color: rgb(218, 218, 218);
-        height: 500px; 
-        background-position: center; 
-        background-repeat: no-repeat; 
-        background-size: cover; 
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        font-family: "Open Sans", Roboto, sans-serif ;
-        font-size: 1.5rem;
-        font-weight: 700;
-        line-height: 4rem;
-       
-       }
-       #mtext{
-        font-family: "PT Sans" ;
-        font-size: 3rem;;
-        font-weight: 700;
-        line-height: 5rem;
-
-       }
-       #btext{
-        font-family: "Gotham Bold";
-        font-weight: 800;
-        color: black;
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-       }
-
-       #htext{
-        font-family: "Gotham-Medium";
-        font-weight: 500;
-        color:  rgb(58, 89, 109);
-        font-size: 1.8rem;
-        line-height: 1.8rem;
-       }
-
-
-       .top>div{
-        align-self: center;
-
-       }
-
-
-       .container{
-        width: 80%;
-        margin: auto;
-        margin-top: 50px;
-       }
-
-       .cate{
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        gap: 20px;
-        margin-top: 30px;
-       }
-       .cate>div{
-        padding: 25px;
-        margin: auto;
-        background-color: #e3dfdf;
-       }
-       .cate>div img{
-        width: 80%;
-        margin: auto;
-        margin-top: 50px;
-        
-       }
-       .cate>div>div:nth-child(1){
-        width: 50%;
-       }
-    </style>
 </head>
 <body>
-    <nav>
+<!------------------- navigation bar start ------------>
+
+    <div class="nav">
         <div  class="part1">
                  <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
             <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
@@ -143,23 +26,61 @@
        <div class="part2">
             <p>Login</p>
             <p>Signup</p>
-            <button class="nav-button">Book a Studio</button>
+            <button class="nav-button">Register as Studio</button>
         </div>
-    </nav>
+    </div>
+
+     <!------------------- page contain  ------------>
 
         <div class="top">
             <div>
               <p id="mtext">Strike a Pose</p> 
             <span id="btext">Book </span><span> a Photoshoot Today</span>
             <br>
-            <button class="nav-button">Book A Studio</button>  
+            <button class="top-button">Book A Studio</button>  
             </div>
             
         </div>
 
+        <div class="main">
+            <div class="HowItWorks">
+                <p id="htext">How It Works</p>
+    
+                <div>
+                    <div>
+                        <img width="15%" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/245532/14-512.png" alt="">
+                        <h3>Search</h3>
+                        <p >Search for your perfect 
+                            Photographer based on your location, 
+                            category and price range.</p>
+                    </div>
+    
+                    <div>
+                        <img width="15%"  src="https://mixpanel.com/wp-content/uploads/2020/07/icon-09.svg" alt="">
+                        <h3>Shortlist</h3>
+                        <p>Shortlist Photographers you like based on their albums, packages and reviews to keep track.</p>
+                    </div>
+    
+                    <div>
+                        <img width="15%"  src="https://d1hcxvwj40zhpj.cloudfront.net/images/icons/blue-circle-creditcard.png" alt="">
+                        <h3>Book</h3>
+                        <p>Book your finalized Photographer by selecting a package or directly contacting them on Whatsapp.</p>
+                    </div>
+      
+                </div>
+                
+                <p>We have listings of Phone Number, Albums, Packages and Reviews of Best Photographers from all over India for Wedding, Babies, Kids, Pre Wedding, Maternity, Anniversary, Commercial, Food, Restaurant, Corporate Events, Fashion, Portfolio, Nature and Travel Photography.</p>
+            
+            </div>
+
+        </div> 
+   
+
     <div class="container">  
+       
+        
         <p id="htext">Photography for Every Milestone</p>
-        <p id="stext">Get inspired to create your own beautiful moments!        </p>
+        <p id="stext">Get inspired to create your own beautiful moments!</p>
 
 
         <div class="cate">
@@ -174,86 +95,97 @@
                 </div>
               
             </div>
-
+            
             <div>
                 <div>
-                    <p id="btext">Holiday</p>
-                <p id="stext">Capture precious moments at your favourite destinations</p>
+                    <p id="btext">Family</p>
+                <p id="stext">From intimate family shoots to special gatherings
+            </p>
                
                 </div>
                 <div>
-               <img src="https://media.istockphoto.com/id/527664616/photo/eurotrip-memories-shown-on-polaroid-photos-summer-vacations.jpg?s=612x612&w=0&k=20&c=XKb22tEr_1qKI3CaFYQSBkOqTCB_qXjIcHqEVeje-6A=" alt="">
+               <img src="https://img.freepik.com/free-vector/big-family-meeting_74855-5220.jpg" alt="">
                 </div>
               
             </div>
 
             <div>
                 <div>
-                    <p id="btext">Holiday</p>
-                <p id="stext">Capture precious moments at your favourite destinations</p>
+                    <p id="btext">Marriage</p>
+                <p id="stext">Proposal</p>
+                <p id="stext">Pre-wedding</p>
                
                 </div>
                
-               <img src="https://media.istockphoto.com/id/527664616/photo/eurotrip-memories-shown-on-polaroid-photos-summer-vacations.jpg?s=612x612&w=0&k=20&c=XKb22tEr_1qKI3CaFYQSBkOqTCB_qXjIcHqEVeje-6A=" alt="">
+               <img  src="https://t4.ftcdn.net/jpg/05/75/09/11/360_F_575091137_eZdRXtOcONA2eKP242DxoqTi2DGqAysv.jpg" alt="wed">
                 
               
             </div>
 
             <div>
                 <div>
-                    <p id="btext">Holiday</p>
-                <p id="stext">Capture precious moments at your favourite destinations</p>
-               
+                    <p id="btext">Birthday</p>
+                <p id="stext">
+                    Every birthday is worthy to be celebrated</p>
                 </div>
                 <div>
-               <img  src="https://media.istockphoto.com/id/527664616/photo/eurotrip-memories-shown-on-polaroid-photos-summer-vacations.jpg?s=612x612&w=0&k=20&c=XKb22tEr_1qKI3CaFYQSBkOqTCB_qXjIcHqEVeje-6A=" alt="">
+               <img  src="https://img.freepik.com/premium-vector/cartoon-happy-family-friends-greeting-cheerful-characters-giving-gift-present-celebrate-anniversary-day-with-cake-flags-balloon-background-birthday-party-celebration_212168-1306.jpg?w=2000" alt="">
                 </div>
               
             </div>
+           
+            
+
             <div>
                 <div>
-                <p id="btext">Holiday</p>
-                <p id="stext">Capture precious moments at your favourite destinations</p>
+                <p id="btext"> Graduation</p>
+                <p id="stext">Celebrate your achievements</p>
                
                 </div>
                 <div>
-               <img  src="https://media.istockphoto.com/id/527664616/photo/eurotrip-memories-shown-on-polaroid-photos-summer-vacations.jpg?s=612x612&w=0&k=20&c=XKb22tEr_1qKI3CaFYQSBkOqTCB_qXjIcHqEVeje-6A=" alt="">
+               <img  src="https://i1.wp.com/www.learnesl.net/wp-content/uploads/2020/09/Graduation.jpg?fit=1200%2C800&ssl=1" alt="">
                 </div>
               
             </div>
 
             <div>
                 <div>
-                    <p id="btext">Holiday</p>
-                <p id="stext">Capture precious moments at your favourite destinations</p>
+                    <p id="btext">Baby</p>
+                <p id="stext">Maternity</p>
+               
+                <p id="stext">Newborn</p>
                
                 </div>
                 <div>
-               <img  src="https://media.istockphoto.com/id/527664616/photo/eurotrip-memories-shown-on-polaroid-photos-summer-vacations.jpg?s=612x612&w=0&k=20&c=XKb22tEr_1qKI3CaFYQSBkOqTCB_qXjIcHqEVeje-6A=" alt="">
+               <img  src="data:image/jpeg;base64,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" alt="">
                 </div>
               
             </div>
+            
 
             <div>
                 <div>
-                    <p id="btext">Holiday</p>
-                <p id="stext">Capture precious moments at your favourite destinations</p>
+                    <p id="btext">Others</p>
+                <p id="stext">For every moment, anywhere, any time</p>
                
                 </div>
                
-               <img  src="https://media.istockphoto.com/id/527664616/photo/eurotrip-memories-shown-on-polaroid-photos-summer-vacations.jpg?s=612x612&w=0&k=20&c=XKb22tEr_1qKI3CaFYQSBkOqTCB_qXjIcHqEVeje-6A=" alt="">
+               <img  src="https://cdn.britannica.com/37/91837-050-2CC301F9/Children-pet-dog.jpg" alt="">
                 
               
             </div>
 
             <div>
                 <div>
-                    <p id="btext">Holiday</p>
-                <p id="stext">Capture precious moments at your favourite destinations</p>
+                    <p id="btext">
+
+                        Browse All Categories
+                       </p>
+                
                
                 </div>
                 <div>
-               <img  src="https://media.istockphoto.com/id/527664616/photo/eurotrip-memories-shown-on-polaroid-photos-summer-vacations.jpg?s=612x612&w=0&k=20&c=XKb22tEr_1qKI3CaFYQSBkOqTCB_qXjIcHqEVeje-6A=" alt="">
+               <img  src="https://www.mbot.com/wp-content/uploads/2022/03/66-663418_right-clipart-black-arrow-right-arrow-png-download.png" alt="">
                 </div>
               
             </div>
@@ -261,8 +193,178 @@
 
         </div>
 
+       
 
     </div> 
 
+    <div class="main">
+        <div class="why">
+            <p>Why book a photo shoot with us</p>
+            <div>
+
+
+                <div>
+                    <div>
+                        <img src="https://cdn.sweetescape.com/images/section_assets/11/icon/big_4acaeac6-d909-423a-bf1e-85fdaed40f95.png" alt="">
+                    </div>
+
+                    <div>
+                        <h3>Hassle-Free Booking</h3>
+                        <p>Simply select your photo shoot package in almost any city and a photographer will be assigned to you shortly.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <img src="https://cdn.sweetescape.com/images/section_assets/12/icon/big_e92162bd-8ced-48c8-9f8f-a30ec7da133c.png" alt="">
+                    </div>
+                    <div>
+                        <h3>The Best Photographers</h3>
+                        <p>Our photographers are professionally selected to provide the best photo experience and results.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <img src="https://cdn.sweetescape.com/images/section_assets/13/icon/big_4e69a3e2-7b88-4a50-b371-384ea41e405c.png" alt="">
+                    </div>
+                    <div>
+                        <h3>Great Photos</h3>
+                        <p>Our experienced editor team ensures that your photos are edited to the highest quality.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <img src="https://cdn.sweetescape.com/images/section_assets/14/icon/big_4edb2d57-e0e4-4f6a-bc3d-bbc201e4196a.png" alt="">
+                    </div>
+                    <div>
+                        <h3>Fast Delivery</h3>
+                        <p>Delivering top quality photos in just 48 hours after your session.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <img src="https://cdn.sweetescape.com/images/section_assets/30/icon/big_b18d6d1a-2f00-4938-a02d-009033f90c0a.png" alt="">
+                    </div>
+                    <div>
+                        <h3>Covid health-protocol</h3>
+                        <p>Most of our photographers have been vaccinated and we maintain safe distance during the photoshoot</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div>
+                        <img src="https://cdn.sweetescape.com/images/section_assets/29/icon/big_60a8127e-8efb-475e-ade4-f7f84c5d5543.png" alt="">
+                    </div>
+                    <div>
+                        <h3>Peace-of-mind</h3>
+                        <p>We understand that plans can change due to unforseen circumstances especially during this pandemic, we provide easy reschedule up-to 48 hours before your photoshoot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p  id="htext">What people are saying…</p>
+  <div class="reviews">
+        <div>
+            <div>
+                <img src="https://d3btuubl2bvm9d.cloudfront.net/images/2c9f8d695498b25a0154d2db55b40255/1502435808623-mid.jpg" alt="">
+                <h3>Vyankatesh Gadekar</h3>
+                <p>WEDDING</p>
+                <h3>⭐5</h3>
+            </div>
+            <p>Very professional team of photographers. Passionate about their work and very accommodating. Made our wedding memorable. Good with the parents and relatives as well.
+
+            </p>
+        </div>
+        <div>
+            <div>
+                <img src="https://d3btuubl2bvm9d.cloudfront.net/images/2c9f8d6952b600c30152c4a9bff60025/1545673400381-mid.jpg" alt="">
+                
+                <h3>Bandana Maity</h3>
+                <p>WEDDING</p>
+                <h3>⭐4.6</h3>
+            </div>
+            <p>Photomatic is a complete solution for wedding photography. This team has got excellent members with huge knowledge. The best part is all the members are calm,decent and very friendly and highly professional too. All the very best to this lovely team.
+            </p>
+        </div>
+        <div>
+            <div>
+                <img src="https://d3btuubl2bvm9d.cloudfront.net/images/2c9f8d695498b25a0154d2db55b40255/1502435808623-mid.jpg" alt="">
+                
+                <h3>Supriya Mishra</h3>
+                <p>SPECIAL OCCASION</p>
+                <h3>⭐4.5</h3>
+            </div>
+            <p>Best photography best service with lots of creativity made my wedding memorable . These guys did a great job thanku vijay studio you guys are really awesome
+            </p>
+        </div>
+
+
+    </div>
+
+    </div>
+  
+
+    <div class="bottom">
+        <p>
+            Are you Professional Photographer?
+        </p>
+        <button class="nav-button">Register as Studio</button>
+    </div>
+
+    <!------------------- footer part  ------------>
+    <div class="footer">
+        <p id="ftext">Strike a Pose </p>
+        <div>
+            <div>
+                <p>Company</p>
+                <li>Blog
+                </li>
+                <li>About Us
+                </li>
+                <li>Contact Us</li>
+                <li>Cities</li>
+                
+            </div>
+            <div>
+                <p>Legal</p>
+                <li>Terms Of Service
+                </li>
+                <li>Privacy Policy
+                </li>
+                <li>Content Guidelines</li>
+                <li>Community Guidelines</li>
+                <li>3rd Party licenses</li>
+                
+            </div>
+        </div>
+        <hr>
+        <p>
+            Icons made by Freepik from www.flaticon.com And Font Awesome
+            </p>
+            <hr>
+            <p>
+                © Copyright 2023 Strike a Pose Technologies Pvt. Ltd. All rights reserved. | 
+                Terms Of Service | 
+                Privacy Policy
+                </p>
+    </div>
+
+
 </body>
 </html>
+
+<script>
+     // <!------------------- navigation bar code ------------>
+ let navbar=document.querySelector(".nav")
+    
+    window.onscroll=function(){
+        navbar.classList.add("sticky");
+    }
+// <!------------------- navigation bar code ------------>
+</script>
