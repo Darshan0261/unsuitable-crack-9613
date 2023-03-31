@@ -86,7 +86,7 @@
           </p>
 
           <button type="submit" class="btn">Create free account</button>
-          </form>
+        </form>
          
 
          
@@ -140,12 +140,13 @@
   </body>
 </html>
 
-<script src="">
+<script >
     document.querySelector(".btn").addEventListener("click", register);
-
+    
 
     async function register(event) {
     event.preventDefault();
+    console.log("4145")
     try {
         let name = document.querySelector("#name").value;
         let mobile = document.querySelector("#mobile").value;
@@ -159,7 +160,7 @@
         password,
         };
 
-        let regurl = "http://localhost:4500/user/signup";
+        let regurl = "http://localhost:4500/users/signup";
 
         let res = await fetch(regurl, {
         method: "POST",
@@ -169,8 +170,7 @@
         },
         });
         let data = await res.json();
-        alert(data.msg);
-
+        alert(data.message);
         console.log(data);
 
         window.location = "login.html";
