@@ -2,11 +2,11 @@ const {Schema, default: mongoose} = require('mongoose');
 
 const AppointmentSchema = new Schema({
     date: {
-        type: String, // (mm/dd/yyyy)
+        type: String, // yyyy-mm-dd
         required: true
     },
     start_time: {
-        type: String, // hh-mm-ss 
+        type: String, // hh-mm
         required: true
     },
     end_time: {
