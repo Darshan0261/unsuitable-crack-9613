@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserSignup</title>
+    
+    <link rel="stylesheet" href="../styles/userSignup.css">
+    <link rel="stylesheet" href="../styles/navbar-footer.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+  </head>
+  <body>
+    <!------------------- navigation bar start ------------>
+
+    <div class="nav">
+        <div  class="part1">
+                 <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
+            <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
+            <div>
+                 <p>Home</p>
+            <p>Dashboard</p>
+            </div>
+           
+        </div>
+        
+       <div class="part2">
+            <p>Login</p>
+            <p>Signup</p>
+            <button class="nav-button">Register as Studio</button>
+        </div>
+    </div>
+    
+     <!------------------- page contain  ------------>
+    <div class="container">
+      <div class="main">
+        <div class="part01">
+          <img
+            width="20%"
+            src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg"
+            alt="logo"
+          />
+          <ul class="head">
+            Why sign up?
+          </ul>
+          <ul>
+            <li>Our photographers are professionally selected to provide the best photo experience and results.</li>
+            <li>Simply select your photo shoot package in almost any city and a photographer will be assigned to you shortly.</li>
+            <li>Our experienced editor team ensures that your photos are edited to the highest quality.</li>
+            <li>Delivering top quality photos in just 48 hours after your session.</li>
+          </ul>
+          <div>
+           <img
+            class="svg"
+            width="100%"
+            src="https://i1.adis.ws/i/canon/pro-ambassador-yasmin-albatoul-kitbag_27925a5cd9b14fdfb43ef11168a4ac35?$editorial-kitbag-16by9-dt-jpg$"
+            alt="postman_vector"
+          />  
+          </div>
+         
+        </div>
+
+        <div class="part02">
+          <div>
+            <span class="head">Create Account</span>
+            <span class="body">
+              <a href="login.html"> Sign In </a>instead?</span
+            >
+          </div>
+
+          <form action="">
+            <p>Fullname</p>
+            <input id="name" type="text" required />
+          <p>Phone Number</p>
+          <input id="mobile" type="text" required />
+          <p>Email</p>
+          <input id="email" type="text" required />
+        
+          <p>Password</p>
+          <input id="password" type="password" required />
+
+            <p class="body">Stay signed in for 30 days</p>
+          <p>
+            By creating an account, I agree to the Terms and Privacy Policy.
+          </p>
+
+          <button type="submit" class="btn">Create free account</button>
+          </form>
+         
+
+         
+        
+       
+        </div>
+      </div>
+    </div>
+
+ 
+    <!------------------- footer part  ------------>
+    <div class="footer">
+        <p id="ftext">Strike a Pose </p>
+        <div>
+            <div>
+                <p>Company</p>
+                <li>Blog
+                </li>
+                <li>About Us
+                </li>
+                <li>Contact Us</li>
+                <li>Cities</li>
+                
+            </div>
+            <div>
+                <p>Legal</p>
+                <li>Terms Of Service
+                </li>
+                <li>Privacy Policy
+                </li>
+                <li>Content Guidelines</li>
+                <li>Community Guidelines</li>
+                <li>3rd Party licenses</li>
+                
+            </div>
+        </div>
+        <hr>
+        <p>
+            Icons made by Freepik from www.flaticon.com And Font Awesome
+            </p>
+            <hr>
+            <p>
+                © Copyright 2023 Strike a Pose Technologies Pvt. Ltd. All rights reserved. | 
+                Terms Of Service | 
+                Privacy Policy
+                </p>
+    </div>
+
+
+
+  </body>
+</html>
+
+<script src="">
+    document.querySelector(".btn").addEventListener("click", register);
+
+
+    async function register(event) {
+    event.preventDefault();
+    try {
+        let name = document.querySelector("#name").value;
+        let mobile = document.querySelector("#mobile").value;
+        let email = document.querySelector("#email").value;
+        let password = document.querySelector("#password").value;
+
+        let regdata = {
+        name,
+        mobile,
+        email,
+        password,
+        };
+
+        let regurl = "http://localhost:4500/user/signup";
+
+        let res = await fetch(regurl, {
+        method: "POST",
+        body: JSON.stringify(regdata),
+        headers: {
+            "Content-type": "application/json",
+        },
+        });
+        let data = await res.json();
+        alert(data.msg);
+
+        console.log(data);
+
+        window.location = "login.html";
+    } catch (err) {
+        console.log(err);
+    }
+    }
+</script>
