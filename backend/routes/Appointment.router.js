@@ -79,25 +79,33 @@ appointmentRouter.patch('/accept/:id', authentication, studioAuth, async (req, r
 // Reject or cancel appointment
 appointmentRouter.patch('/reject/:id', authentication, async (req, res) => {
     const { token } = req.body;
+    
     const { id } = req.params;
     const role = token.role;
+   
     if (role == 'studio') {
         const studio_id = token.id;
         const appointment = await AppointmentModel.findOne({ _id: id, studio_id });
         if (appointment) {
             await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Rejected' })
-            return res.send({ message: 'Appointment Rejected' })
+             res.send({ message: 'Appointment Rejected' })
+             return
         } else {
-            return res.status(401).send({ message: 'Access Denied' })
+           res.status(401).send({ message: 'Access Denied' })
+           return
         }
     } else {
         const user_id = token.id;
+        console.log(user_id)
         const appointment = await AppointmentModel.findOne({ _id: id, user_id });
+      console.log(appointment)
         if (appointment) {
-            await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Rejected' })
-            return res.send({ message: 'Appointment Cancelled' })
+            await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Cancelled' })
+            res.send({ message: 'Appointment Cancelled' })
+            return
         } else {
-            return res.status(401).send({ message: 'Access Denied' })
+            res.status(401).send({ message: 'Access Denied' })
+            return
         }
     }
 })

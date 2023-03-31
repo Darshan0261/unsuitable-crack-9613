@@ -10,7 +10,7 @@ async function dashboard() {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDIyYjZiYTU3OGFjYzhmOGYxZjk0OTgiLCJpYXQiOjE2ODAyMDc2OTF9.YQDB6oN9k93VvySFR_adl5oLKvWOyTpOII-7z47ObUs"
+                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDI2NzZmNzhiYjllOGVlZWIyMDU5NTYiLCJpYXQiOjE2ODAyNDU4Njl9.1w-M8Z3MP1YXfR2PA9w4xi7oj5AiE99XLSSPTyafRBs"
             }
         });
     } catch (error) {
@@ -51,7 +51,7 @@ function display(out) {
             count1++
         } else if (ele.status == "Pending") {
             count2++
-        } else if (ele.status == "Rejected") {
+        } else if (ele.status == "Cancelled") {
             count3++;
         }
     })

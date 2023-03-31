@@ -4,6 +4,7 @@ var currentDate = new Date();
 var dateString = currentDate.toDateString();
 document.getElementById("currentDate").innerText = dateString;
 
+let bag = [];
 
 async function dashboard() {
 
@@ -13,14 +14,15 @@ async function dashboard() {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDIyYjZiYTU3OGFjYzhmOGYxZjk0OTgiLCJpYXQiOjE2ODAxNzc4Mjd9.IWjAJtgFADp1nBWPNnUeKdR82zzYAv6v9SetLVBbS5w"
+                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDI2NzZmNzhiYjllOGVlZWIyMDU5NTYiLCJpYXQiOjE2ODAyNDU4Njl9.1w-M8Z3MP1YXfR2PA9w4xi7oj5AiE99XLSSPTyafRBs"
             }
         });
     } catch (error) {
         console.log(error);
     }
     let out = await res.json();
-    console.log(out);
+    bag = out;
+    // console.log(out);
     display1(out);
 }
 
@@ -32,6 +34,7 @@ let tablebody = document.querySelector("#tbody");
 
 
 function display1(out) {
+    tablebody.innerHTML = "";
     out.forEach((ele) => {
         let row = document.createElement("tr");
 
@@ -58,8 +61,8 @@ function display1(out) {
         button.className = "cancelbtn"
         button.innerText = "Cancel";
         button.addEventListener("click", () => {
-            status.innerText = "Rejected";
-            updatestatus(status.innerText, ele.user_id);
+            status.innerText = "Cancelled";
+            updatestatus(status.innerText, ele.user_id, ele._id);
             // console.log(status.innerText);
         })
 
@@ -68,25 +71,56 @@ function display1(out) {
         tablebody.append(row);
     })
 
-    async function updatestatus(data, data1) {
-        console.log(data, data1)
-        let res;
+    async function updatestatus(data, data1, apid) {
+        console.log(data, data1, apid)
+        // let dat1=JSON.parse(data1)
+
         try {
-            res = await fetch(`http://localhost:4500/appointment/${data1}`, {
+            const res = await fetch(`http://localhost:4500/appointment/reject/${apid}`, {
                 body: JSON.stringify({ status: data }),
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDI2NzZmNzhiYjllOGVlZWIyMDU5NTYiLCJpYXQiOjE2ODAyNDU4Njl9.1w-M8Z3MP1YXfR2PA9w4xi7oj5AiE99XLSSPTyafRBs",
                 },
-                method: "POST"
+                method: "PATCH"
             });
+
+
+            let out = await res.json();
+            console.log(out);
+            dashboard();
+
         } catch (error) {
             console.log(error);
         }
-        let out = await res.json();
-        console.log(out);
+
 
     }
 }
+
+
+
+
+
+let select = document.querySelector("#filter");
+// console.log(select);
+select.addEventListener("change", () => {
+
+    let value = select.value;
+    console.log(value);
+    // console.log(bag);
+    let filterdata = bag.filter(function (ele) {
+        return ele.status == value
+    })
+    console.log(filterdata);
+    display1(filterdata);
+    
+    
+})
+
+
+
+
 
 
 
