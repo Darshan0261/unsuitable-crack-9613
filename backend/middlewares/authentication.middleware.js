@@ -7,7 +7,8 @@ const authentication = (req, res, next) => {
     if (token) {
         jwt.verify(token, process.env.KEY, async function (err, decoded) {
             if (err) {
-                return res.status(501).send({ message: err.message });
+                 res.status(501).send({ message: err.message });
+                 return
             }
             req.body.token = decoded;
             try {
@@ -16,7 +17,8 @@ const authentication = (req, res, next) => {
                     if (blacklist.tokens.some(item => {
                         return item == token;
                     })) {
-                        return res.status(401).send({ message: 'Login Again' })
+                        res.status(401).send({ message: 'Login Again' })
+                        return
                     } else {
                         next()
                     }
@@ -25,17 +27,20 @@ const authentication = (req, res, next) => {
                     if (blacklist.tokens.some(item => {
                         return item == token;
                     })) {
-                        return res.status(401).send({ message: 'Login Again' })
+                         res.status(401).send({ message: 'Login Again' })
+                         return
                     } else {
                         next()
                     }
                 }
             } catch (error) {
-                return res.status(501).send({message: error.message})
+                 res.status(501).send({message: error.message})
+                 return
             }
         });
     } else {
-        return res.send(401).send({ message: 'Login Again' })
+         res.send(401).send({ message: 'Login Again' })
+         return
     }
 }
 
