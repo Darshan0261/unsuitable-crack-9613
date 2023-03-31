@@ -75,7 +75,7 @@
               </div>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="">
               <div class="album-child">
                 <img src="../../asstes/food.jpg" alt="Advertisement" />
@@ -149,12 +149,51 @@
                 <span>Random</span>
               </div>
             </a>
-          </li>
-          <button class="custom-btn btn"><span>Click!</span><span>Add More</span></button>
+          </li> -->
+
+          <button class="custom-btn btn" onclick="editProfileForm()">
+            <span>Click!</span><span>Add More</span>
+          </button>
         </ul>
       </div>
     </section>
 
-    <script src="../../scripts/studio/profile.js"></script>
+
+
+    <!-- !-------------------------------- POPUP PAGE ------------------------------ -->
+    <section>
+      <div class="bg-model">
+        <div class="model-content">
+          <div class="top_part">
+            <div class="header">Edit your profile</div>
+            <div class="close" onclick="closeProfileForm()">
+              <span class="material-symbols-outlined">close</span>
+            </div>
+          </div>
+          <hr />
+          <form action="">
+            <div class="profile_details">
+              <label>Album Name</label>
+              <input
+                type="text"
+                class="mrgn-btm add-name"
+                placeholder="Enter album name"
+              />
+              <input type="file" id="myFile" name="filename" />
+            </div>
+            <hr />
+            <div class="button_div">
+              <button class="close_bt" onclick="closeProfileForm()">
+                Cancel
+              </button>
+              <input class="submit_bt" value="Add" type="submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="../../scripts/studio/albums.js"></script>
   </body>
 </html>
+
