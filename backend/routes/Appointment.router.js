@@ -38,12 +38,9 @@ appointmentRouter.get('/', authentication, async (req, res) => {
 
 // Accept Appointment
 appointmentRouter.patch('/accept/:id', authentication, studioAuth, async (req, res) => {
-    const { token, status } = req.body;
+    const { token } = req.body;
     const studio_id = token.id;
     const id = req.params['id'];
-    if (!status) {
-        return res.status(428).send({ message: 'Status is required' })
-    }
     try {
 
         const appointment = await AppointmentModel.findOne({ _id: id, studio_id });
@@ -67,7 +64,7 @@ appointmentRouter.patch('/accept/:id', authentication, studioAuth, async (req, r
             }
         })
         if (flag) {
-            await AppointmentModel.findOneAndUpdate({ _id: id, studio_id }, { status })
+            await AppointmentModel.findOneAndUpdate({ _id: id, studio_id }, { status: 'Accepted' })
             return res.send({ message: 'Appointment Accepted' });
         } else {
             return res.status(404).send({ message: 'Appointment Slot Already Booked' })

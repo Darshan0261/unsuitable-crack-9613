@@ -68,6 +68,8 @@ studioRouter.post('/signup', async (req, res) => {
             try {
                 const user = new StudioModel({ pass: hashedPass, ...payload })
                 await user.save();
+                const blacklist = new BlacklistModel({studio_id: user._id})
+                await blacklist.save()
                 return res.send({ message: 'Studio Registered sucessfull' })
             } catch (error) {
                 return res.status(500).send({ message: error.message });
