@@ -60,4 +60,9 @@ logoutButton.addEventListener("click", () => {
     </div>
 </div>`
 
+    
+let log = document.querySelector(".nav-button");
+log.addEventListener("click", () => {
+    window.location.href="./HTML/studioSignup.html"
+});
 }
