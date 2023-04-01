@@ -1,3 +1,9 @@
+/*
+
+1. If I fetch all users, then I have 
+
+*/
+
 async function fetchStudio() {
     try {
         let res = await fetch(`http://localhost:4500/studios/`, {
@@ -22,3 +28,4 @@ function displayStudiosLength(data) {
     let studioCount = document.getElementById("studio-count");
     studioCount.innerHTML = `<b>${data.length}</b>`;
 }
+

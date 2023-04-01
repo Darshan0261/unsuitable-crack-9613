@@ -33,8 +33,8 @@
             <hr />
             <ul class="profile-ul">
               <div class="more-info-childs">
-                <li><i class="fa-solid fa-user greenli"></i></li>
-                <div id="studio-name" ></div>
+                <li><i class="fa-solid fa-building greenli"></i></li>
+                <div id="studio-name" >Studio</div>
               </div>
               <div class="more-info-childs">
                 <li><i class="fa-solid fa-users-rays pinkli"></i></li>
@@ -46,7 +46,7 @@
               </div>
             </ul>
             <div>
-              <button class="custom-btn btn-14"  onclick="editProfileForm()">Read More</button>
+              <button class="custom-btn btn-14"  onclick="editProfileForm()">Edit Profile</button>
             </div>
           </div>
           <div class="profile-other-info">
@@ -55,7 +55,7 @@
                 <h2>Other Information</h2>
                 <ul>
                   <div class="more-info-childs">
-                    <li><i class="fa-solid fa-venus-mars greenli"></i></li>
+                    <li><i class="fa-solid fa-user greenli"></i></li>
                     <div id="name">Kunal</div>
                   </div>
                   <div class="more-info-childs">
@@ -82,15 +82,19 @@
                 <h2>Studio Information</h2>
                 <ul>
                   <div class="more-info-childs">
-                    <li><i class="pinkli fa-sharp fa-regular fa-clock"></i></li>
+                    <li><i class="greenli fa-sharp fa-solid fa-business-time"></i></li>
                     <div><span id="start-time">start</span> - <span id="end-time">end</span></div>
                   </div>
                   <div class="more-info-childs">
-                    <li><i class="fa-solid fa-briefcase pinkli"></i></li>
-                    <div id="price">₹1000</div>
+                    <li><i class="fa-solid fa-money-bill-1-wave pinkli"></i></li>
+                    <div >₹<span id="price">1000</span></div>
                   </div>
                   <div class="more-info-childs">
-                    <li><i class="greenli fa-sharp fa-solid fa-house"></i></li>
+                    <li><i class="greenli fa-solid fa-calendar-check"></i></li>
+                    <div id="working-days">days</div>
+                  </div>
+                  <div class="more-info-childs">
+                    <li><i class="pinkli fa-sharp fa-solid fa-house"></i></li>
                     <div id="address">D-128 D.M.Bagan, Kolkata-700024</div>
                   </div>
                 </ul>
@@ -110,22 +114,15 @@
                 <div class="close" onclick="closeProfileForm()"><span class="material-symbols-outlined">close</span></div>
               </div>
               <hr>
-              <form action="">
+              <form action="" id="edit_form">
                 <div class="profile_details">
                   <label>Name</label>
-                  <input type="text" class="mrgn-btm edit-name" placeholder="Enter your name">
+                  <input type="text" class="mrgn-btm edit-name" placeholder="Enter your name" id="edit_name">
                   <label>Mobile Number</label>
-                  <input type="text" class="mrgn-btm phone_number" placeholder="Enter new phone number">
-                  <label>Gender</label>
-                      <select class="mrgn-btm" name="gender" id="">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                      </select>
-                      <label>DOB:</label>
-                      <input type="date"  class="mrgn-btm"  placeholder="dob"/>
-                      <label>City</label>
-                      <input type="text"  class="mrgn-btm"  placeholder="Enter the new city" />
+                  <input type="text" class="mrgn-btm phone_number" placeholder="Enter new phone number" id="edit_number">
+                  
+                      <label>Price</label>
+                      <input type="number"  class="mrgn-btm"  placeholder="Price" id="edit_price"/>
                     </div>
                   <hr>
                   <div class="button_div">
