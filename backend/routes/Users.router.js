@@ -8,6 +8,7 @@ const { UserModel } = require('../models/Users.model');
 const { authentication } = require('../middlewares/authentication.middleware');
 const { BlacklistModel } = require('../models/Blacklist.model');
 const { userAuth } = require('../middlewares/authorization.middleware');
+const { AppointmentModel } = require('../models/Appoinment.model');
 
 const userRouter = express.Router();
 
@@ -124,6 +125,25 @@ userRouter.patch('/update/password/:id', authentication, userAuth, async (req, r
         });
     } catch (error) {
         return res.status(501).send({ message: error.message });
+    }
+})
+
+userRouter.delete('/delete/:id', authentication, userAuth, async (req, res) => {
+    const { token } = req.body;
+    let user_id = req.params['id'];
+    if (user_id != token.id) {
+        return res.status(401).send({ message: 'Access Denied' });
+    }
+    try {
+        const appointments = await AppointmentModel.find({user_id: user_id});
+        appointments.forEach(app => {
+            app.status = 'Rejected';
+        })
+        await appointments.save();
+        await UserModel.findOneAndDelete({_id: user_id});
+        return res.send({message: 'Account Deleted Sucessfully'})
+    } catch (error) {
+        return res.status(501).send({message: error.message})       
     }
 })
 

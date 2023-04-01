@@ -198,6 +198,25 @@ studioRouter.post('/slots/book/:id', authentication, userAuth, studioIdValidator
     }
 })
 
+studioRouter.delete('/delete/:id', authentication, studioAuth, async (req, res) => {
+    const { token } = req.body;
+    let studio_id = req.params['id'];
+    if (studio_id != token.id) {
+        return res.status(401).send({ message: 'Access Denied' });
+    }
+    try {
+        const appointments = await AppointmentModel.find({studio_id: studio_id});
+        appointments.forEach(app => {
+            app.status = 'Rejected';
+        })
+        await appointments.save();
+        await StudioModel.findOneAndDelete({_id: studio_id});
+        return res.send({message: 'Account Deleted Sucessfully'})
+    } catch (error) {
+        return res.status(501).send({message: error.message})       
+    }
+})
+
 module.exports = {
     studioRouter
 }
