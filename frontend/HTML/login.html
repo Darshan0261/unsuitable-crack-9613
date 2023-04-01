@@ -157,9 +157,9 @@ async function login(event) {
     console.log(data);
     if (data) {
       // Store the access token in the session storage
-      console.log(data.user)
-      JSON.stringify(localStorage.setItem('token', data.token));
-      JSON.stringify(localStorage.setItem('user',data.user))
+      // console.log(data.user)
+      localStorage.setItem('token', JSON.stringify(data.token));
+      localStorage.setItem('user',JSON.stringify(data.user))
       // alert(data.message);
       // window.location = "../index.html";
     } else {
