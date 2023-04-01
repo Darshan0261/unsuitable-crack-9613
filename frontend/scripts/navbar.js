@@ -27,18 +27,17 @@ if(isLoggedIn){
 </div>`;
 
 let dash = document.querySelector("#dash");
-// if(role=="users"){
-//     dash.href="../HTML/users/users.html"
-// }else{
-//     dash.href="../HTML/studio/DashBoard.html"
-// }
-
+if(localStorage.getItem('role')=="users"){
+    dash.href="../HTML/users/users.html"
+}else{
+    dash.href="../HTML/studio/DashBoard.html"
+}
 let logoutButton = document.querySelector("#logout-button");
 logoutButton.addEventListener("click", () => {
   localStorage.removeItem("token");
   localStorage.removeItem("role");
   localStorage.removeItem("userName")
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
 });
 }else{
     head.innerHTML=`
@@ -60,4 +59,9 @@ logoutButton.addEventListener("click", () => {
     </div>
 </div>`
 
+
+let log = document.querySelector(".nav-button");
+log.addEventListener("click", () => {
+    window.location.href="./studioSignup.html"
+});
 }
