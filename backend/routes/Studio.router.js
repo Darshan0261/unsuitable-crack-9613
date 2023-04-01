@@ -68,7 +68,7 @@ studioRouter.post('/signup', async (req, res) => {
             try {
                 const user = new StudioModel({ pass: hashedPass, ...payload })
                 await user.save();
-                const blacklist = new BlacklistModel({studio_id: user._id})
+                const blacklist = new BlacklistModel({ studio_id: user._id })
                 await blacklist.save()
                 return res.send({ message: 'Studio Registered sucessfull' })
             } catch (error) {
@@ -120,11 +120,13 @@ studioRouter.post('/logout', authentication, studioAuth, async (req, res) => {
 
 
 // Get slots booked for date
-studioRouter.get('/slots/:id', studioIdValidator, bookingDayValidator, async (req, res) => {
+studioRouter.post('/slots/:id', studioIdValidator, bookingDayValidator, async (req, res) => {
     const { date } = req.body;
     const { id } = req.params;
+    const ObjectId = mongoose.Types.ObjectId;
+    const _id = new ObjectId(id)
     try {
-        const appointments = await AppointmentModel.aggregate([{ $match: { studio_id: id, date: date, status: 'Accepted' } }, { $project: { start_time: 1, end_time: 1 } }]);
+        const appointments = await AppointmentModel.aggregate([{ $match: { studio_id: _id, date: date, status: 'Accepted' } }, { $project: { start_time: 1, end_time: 1, _id: 0 } }]);
         return res.send(appointments)
     } catch (error) {
         return res.status(501).send({ message: error.message })
