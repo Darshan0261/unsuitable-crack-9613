@@ -72,7 +72,7 @@ function display1(out) {
     })
 
     async function updatestatus(data, data1, apid) {
-        console.log(data, data1, apid)
+        // console.log(data, data1, apid)
         // let dat1=JSON.parse(data1)
 
         try {
@@ -112,7 +112,7 @@ select.addEventListener("change", () => {
     let filterdata = bag.filter(function (ele) {
         return ele.status == value
     })
-    console.log(filterdata);
+    // console.log(filterdata);
     display1(filterdata);
     
     

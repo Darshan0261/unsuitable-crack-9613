@@ -1,0 +1,131 @@
+/* center the form and set a max-width */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: #f3f5f9;
+}
+
+.main-cont {
+    display: flex;
+    /* justify-content: space-evenly; */
+    position: relative;
+}
+
+.child1 {
+    width: 20%;
+    height: 100vh;
+    /* border: 1px solid red; */
+    background: rgb(1, 92, 146);
+    padding: 40px;
+}
+
+.child1 h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-right: 100px;
+}
+
+.child1 ul li {
+    padding: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(225, 225, 225, 0.05);
+    color: #fff;
+}
+
+.child1 ul li a {
+    color: #bdb8d7;
+    display: block;
+    font-size: 16px;
+}
+
+.child1 ul li a .fas {
+    width: 20px;
+
+}
+
+.child1 ul li a .far {
+    width: 20px;
+}
+
+.child1 ul li a .fab {
+    width: 20px;
+}
+
+.child1 ul li:hover {
+    background: #594f8d;
+}
+
+.child1 ul li:hover a {
+    color: #fff;
+}
+
+#child1btn {
+    margin-top: 130px;
+    margin-left: 25px;
+}
+
+#child1btn button {
+    width: 85px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.child2 {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border: 1px solid red;
+
+}
+
+.child2>h1 {
+    margin-bottom: 50px;
+}
+
+
+form {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+
+label,
+input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 8px 0;
+    border: 2px solid #ccc;
+    width: 100%;
+    padding: 12px 20px;
+
+    box-sizing: border-box;
+
+    border-radius: 4px;
+}
+
+
+h1 {
+    text-align: center;
+}
