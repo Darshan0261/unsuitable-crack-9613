@@ -39,7 +39,7 @@ let address = document.getElementById("address");
 async function fetchStudio() {
   try {
     let res = await fetch(
-      `http://localhost:4500/studios/${id}`,
+      `http://localhost:4500/studios/6426794c5eaa668f464f4bf1`,
       {
         method: "GET",
         headers: {
@@ -67,7 +67,7 @@ function displayProfileDetails(data) {
   address.innerText = `${data.street} ${data.city}, ${data.state}`;
   startTime.innerText = data.start_time;
   endTime.innerText = data.end_time;
-  profile_img.innerHTML = `<img src=${data.profile_image} alt""/>`;
+  profile_img.innerHTML = `<img src=${data.profile_image} />`;
   price.innerText = data.price;
   city.innerText = data.city;
 }
