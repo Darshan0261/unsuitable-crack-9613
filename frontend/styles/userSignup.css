@@ -89,13 +89,13 @@
     font-weight: 700;
   }
   
-  .c {
-    text-align: center;
+
+   p{
+      margin-top: 10px;
   }
-  
   .svg {
     margin-top: 10px;
   }
-  p{
-      margin-top: 10px;
+   .c {
+    text-align: center;
   }

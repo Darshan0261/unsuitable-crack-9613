@@ -17,17 +17,17 @@
                  <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
             <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
             <div>
-                 <p>Home</p>
-            <p>Dashboard</p>
-            </div>
-           
-        </div>
-        
-       <div class="part2">
-            <p>Login</p>
-            <p>Signup</p>
-            <button class="nav-button">Register as Studio</button>
-        </div>
+                <a  id="nbtn" href="./index.html">Home</a>
+               <a  id="nbtn" href="./HTML/users/users.html">Dashboard</a>
+           </div>
+          
+       </div>
+       
+      <div class="part2">
+           <a id="nbtn" href="./HTML/login.html">Login</a>
+           <a id="nbtn"  href="./HTML/userSignup.html">Signup</a>
+           <button class="nav-button">Register as Studio</button>
+       </div>
     </div>
 
      <!------------------- page contain  ------------>
@@ -37,7 +37,7 @@
               <p id="mtext">Strike a Pose</p> 
             <span id="btext">Book </span><span> a Photoshoot Today</span>
             <br>
-            <button class="top-button">Book A Studio</button>  
+            <button onclick="openStudioPage()" class="top-button">Book A Studio</button>  
             </div>
             
         </div>
@@ -367,4 +367,11 @@
         navbar.classList.add("sticky");
     }
 // <!------------------- navigation bar code ------------>
+
+
+   function openStudioPage(){
+     window.location="./HTML/allPhotographer.html"
+   }
+
+   document.querySelector(".cate").addEventListener("click",openStudioPage)
 </script>

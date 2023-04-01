@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Signup</title>
+    <link rel="stylesheet" href="../styles/navbar-footer.css">
+    <style>
+     .container{
+        width: 30%;
+        margin: auto;
+        border: 0px solid;
+        padding: 50px;
+     }     
+  a {
+    text-decoration: none;
+    color: rgb(57, 127, 241);
+    font-weight: 600;
+  }
+  
+  input {
+    background-color: rgb(250, 250, 250);
+    padding: 8px 5px 5px 10px;
+    width: 90%;
+    border: 1px solid rgb(180, 179, 179);
+    border-radius: 6px;
+    font-size: large;
+    
+    margin-top: 10px;
+  }
+  
+  input:focus {
+    outline: none !important;
+    border: 2px solid rgb(24, 24, 24);
+  }
+  
+  
+  .btn {
+      color: white;
+      background-color:  rgb(24, 24, 24);
+      width: 60%;
+      padding: 15px 0px 15px 0px;
+      margin-bottom: 15px;
+      font-size: 120%;
+      border: 0px solid  rgb(24, 24, 24);
+      border-radius: 5px;
+
+      margin-top: 10px;    
+  }
+  
+      .btn:hover{
+          background-color: rgb(62, 62, 62);
+      }
+  
+  
+  .head {
+    font-size: 110%;
+    font-weight: 700;
+  }
+  
+  p{
+      margin-top: 10px;
+  }
+    </style>
+
+</head>
+<body>
+
+      <!------------------- navigation bar start ------------>
+
+  <div class="nav">
+    <div  class="part1">
+             <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
+        <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
+        <div>
+             <a  id="nbtn" href="../index.html">Home</a>
+            <a  id="nbtn" href="./allPhotographer.html">Dashboard</a>
+        </div>
+       
+    </div>
+    
+   <div class="part2">
+        <a id="nbtn" href="./login.html">Login</a>
+        <a id="nbtn"  href="./userSignup.html">Signup</a>
+        <button class="nav-button">Register as Studio</button>
+    </div>
+</div>
+
+ <!------------------- page contain  ------------>
+   
+    <div class="container">
+        <div>
+          <span class="head">Create Account</span>
+          <span class="body">
+            <a href="login.html"> Sign In </a>instead?</span
+          >
+        </div>
+
+        <form action="">
+          <p>Fullname</p>
+          <input id="name" type="text"  />
+        <p>Phone Number</p>
+        <input id="mobile" type="number"  />
+     
+        <p>Password</p>
+        <input id="pass" type="password"  />
+        <p>Price</p>
+        <input id="price" type="number"  />
+        <p>Street</p>
+        <input id="street" type="text"  />
+        <p>City</p>
+        <input id="city" type="text"  />
+        <p>State</p>
+        <input id="state" type="text"  />
+     
+        <p>Pin code</p>
+        <input id="zip_code" type="text"  />
+     
+        <p></p>
+        <fieldset>
+            <legend>Select Working Days:</legend>
+            <label><input type="checkbox" id="day0" name="day" value="0"> Sunday</label><br>
+            <label><input type="checkbox" id="day1"  name="day" value="1"> Monday</label><br>
+            <label><input type="checkbox" id="day2"  name="day" value="2"> Tuesday</label><br>
+            <label><input type="checkbox"  id="day3" name="day" value="3"> Wednesday</label><br>
+            <label><input type="checkbox" id="day4"  name="day" value="4"> Thursday</label><br>
+            <label><input type="checkbox"  id="day5" name="day" value="5"> Friday</label><br>
+            <label><input type="checkbox"  id="day6" name="day" value="6"> Saturday</label><br>
+          </fieldset>
+     
+        <p>Start time</p>
+        <input id="start_time" type="time"  />
+     
+        <p>End time</p>
+        <input id="end_time" type="time"  />
+     
+          <p class="body">Stay signed in for 30 days</p>
+        <p>
+          By creating an account, I agree to the Terms and Privacy Policy.
+        </p>
+
+        <input type="submit" class="btn" value="Create Studio account"></input>
+      </form>
+      
+      </div>
+
+      
+    <!------------------- footer part  ------------>
+    <div class="footer">
+        <p id="ftext">Strike a Pose </p>
+        <div>
+            <div>
+                <p>Company</p>
+                <li>Blog
+                </li>
+                <li>About Us
+                </li>
+                <li>Contact Us</li>
+                <li>Cities</li>
+                
+            </div>
+            <div>
+                <p>Legal</p>
+                <li>Terms Of Service
+                </li>
+                <li>Privacy Policy
+                </li>
+                <li>Content Guidelines</li>
+                <li>Community Guidelines</li>
+                <li>3rd Party licenses</li>
+                
+            </div>
+        </div>
+        <hr>
+        <p>
+            Icons made by Freepik from www.flaticon.com And Font Awesome
+            </p>
+            <hr>
+            <p>
+                © Copyright 2023 Strike a Pose Technologies Pvt. Ltd. All rights reserved. | 
+                Terms Of Service | 
+                Privacy Policy
+                </p>
+    </div>
+
+
+</body>
+</html>
+
+
+<script>
+
+
+  
+    document.querySelector("form").addEventListener("submit", register);
+    
+
+    async function register(event) {
+
+    event.preventDefault();
+
+    let working_days=[]
+
+    for(let i=0;i<7;i++){
+        let day=document.querySelector(`#day${i}`)
+       if(day.checked){
+        working_days.push(Number(day.value)) 
+       }
+    }
+
+    try {
+        let name = document.querySelector("#name").value;
+        let mobile = document.querySelector("#mobile").value;
+        let password= document.querySelector("#pass").value;
+        let price = document.querySelector("#price").value;
+        let street = document.querySelector("#street").value;
+        let city = document.querySelector("#city").value;
+        let state = document.querySelector("#state").value;
+        let zip_code = document.querySelector("#zip_code").value;
+       
+        let start_time = document.querySelector("#start_time").value;  
+        let end_time= document.querySelector("#end_time").value;
+
+        let regdata = {
+        name,
+        mobile,
+        password,
+        price,
+        street,
+        city,
+        state,
+        zip_code,
+        working_days,
+        start_time,
+        end_time
+        };
+
+        console.log(regdata)
+
+        let regurl = "http://localhost:4500/studios/signup";
+
+        let res = await fetch(regurl, {
+        method: "POST",
+        body: JSON.stringify(regdata),
+        headers: {
+            "Content-type": "application/json",
+        },
+        });
+        let data = await res.json();
+        alert(data.message);
+        console.log(data);
+        if(data.message=="Studio Registered sucessfull"){
+          window.location = "login.html";
+        }
+        
+    } catch (err) {
+        console.log(err);
+    }
+
+
+    }
+
+  </script>

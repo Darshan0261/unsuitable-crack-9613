@@ -66,6 +66,12 @@
     background-color: rgb(221, 223, 223);
 }
 
+.cate>div:hover{
+    padding: 20px;
+    opacity: 80%;
+    cursor: pointer;
+}
+
 .cate>div img{
     width: 80%;
     margin: auto;
