@@ -149,3 +149,42 @@
     width: 200px;
     padding: 4px 7px;
 }
+.time_div{
+    /* border: 1px solid black; */
+    width: 80%;
+    margin:auto;
+    padding-bottom: 30px;
+}
+.time_div>label{
+    font-size: 20px;
+    font-weight: bold;
+}
+.time_div>button{
+    font-size: 18px;
+    font-weight: bold;
+    margin-left:30px;
+    width: 200px;
+    padding: 4px 7px;
+}
+.slots_div{
+    width: 40%;
+    text-align: center;
+    margin:auto;
+    padding-bottom: 30px;
+    border: 1px solid black;
+
+}
+
+.slots_div>ul>li{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+.slots_div>ul>li:nth-child(even){
+   background-color: grey;
+   color: white;
+}
+.slots_div>ul>li:nth-child(odd){
+    background-color: black;
+    color: white;
+ }

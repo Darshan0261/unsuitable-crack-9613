@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../nxm_logo.jpg"/>
     <link rel="stylesheet" href="../styles/individual.css">
+    <link rel="icon" type="image/png" href="../nxm_logo.jpg"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../styles/navbar-footer.css">
@@ -43,12 +44,22 @@
     <input id="date_value" type="date">
     <button class="date_ btn" onclick="trigger()">Check Slots via Date</button>
     </div>
-    <div>
-        <input id="start_time" placeholder="start-time" type="time">
+    <hr>
+    <div class="slots_div">
+
+        <h1>Booked Slots</h1>
+        <h2>Studio Timing 10:00 AM - 06:00 PM</h2>
+        <ul class="slots_div_ul"></ul>
+    </div>
+    <hr>
+    <div class="time_div">
+        <label for="">Start Time :</label>
+        <input id="start_time" placeholder="start-time" type="time"><br>
+        <label for="">End Time :</label>
         <input id="end_time" placeholder="start-time" type="time">
         <button onclick="book_slot()">book slot</button>
     </div>
-    
+    <hr>
     <!------------------- footer part  ------------>
  <div class="footer">
     <p id="ftext">Strike a Pose </p>
