@@ -39,7 +39,7 @@
 
 }
 
-.nav-button,.top-button{
+.nav-button,.top-button,#logout-button{
     padding: 15px 25px 15px 25px;
     font-weight: 700;
     border-radius: 20px;
@@ -47,7 +47,7 @@
     font-weight: 600;
 }
 
-.nav-button:hover,.top-button:hover{
+.nav-button:hover,.top-button:hover,#logout-button:hover{
     cursor: pointer;
     color: rgb(255, 255, 255);
     background-color: rgb(79, 75, 75);
@@ -87,7 +87,7 @@ hr{
 }
 
 
-    #nbtn {
+    #nbtn,#dash {
         text-decoration: none;
         color: rgb(255, 255, 255);
         font-weight: 400;
