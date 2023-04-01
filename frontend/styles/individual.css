@@ -1,0 +1,127 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  
+   /* color: white; */
+
+}
+#main_div{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    width: 80%;
+    margin: auto;
+    grid-row-gap: 15px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 350px;
+    background-color: black;
+   
+}
+#main_div>div{
+    /* border: 1px solid black; */
+    align-items: center;
+    padding: 12px;
+    justify-content: space-evenly;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    display: flex;
+    border-radius: 10px;
+
+}
+.charges{
+    color: white;
+}
+#main_div>div>div:nth-child(1){
+    width:40%;
+    /* border: 1px solid black; */
+}
+.p_img{
+    width: 100%;
+    /* border-radius: 90%; */
+     border: 2px solid white;
+}
+.hour{
+    margin: 5px 0px;
+    color: white;
+}
+
+
+.profile_btn{
+    background-color: rgb(180, 179, 179);
+    color: black;
+    font-size: 15px;
+    padding: 3px 10px;
+    border: none;
+    margin-bottom: 4px;
+    border-radius: 3px;
+}
+.see_btn{
+    background-color: white;
+    color: black;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-top: 10px;
+    border: 2px solid white;
+    font-size: 20px;
+    padding: 4px 7px;
+    /* margin-left: 250px; */
+    border-radius: 3px;
+    cursor: pointer;
+}
+.head{
+    font-weight: bolder;
+    margin-bottom: 2px;
+    font-size: 29px;
+    color: white;
+}
+.dark{
+    color: gray;
+    margin-bottom: 4px;
+}
+#back_btn{
+    background-color: rgb(73, 119, 5);
+    border: 1px solid white; 
+    cursor: pointer;
+}
+#parent_div{
+    display: flex;
+}
+/* #parent_div>div{
+    border: 1px solid black;
+} */
+#parent_div>div:nth-child(1){
+    margin-left: 10%;
+    /* border: 1px solid black; */
+    margin-top: 50px;
+    
+}
+#parent_div>div:nth-child(1)>ul{
+    margin-left: 30px;
+}
+#parent_div>div:nth-child(1)>h2{
+    font-size: 25px;
+    text-decoration: underline;
+}
+#parent_div>div:nth-child(1)>ul>li{
+    margin: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+.category{
+    /* border: 1px solid black; */
+    height: 280px;
+    padding:10px 20px;
+    font-weight: bold;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border-radius: 10px;
+}
+#sort{
+    font-size: 18px;
+    /* font-weight: bold; */
+    margin-top: 10px;
+}
+.sort_head{
+    font-size: 25px;
+    margin-top: 30px;
+}
