@@ -154,11 +154,14 @@ async function login(event) {
       },
     });
     let data = await res.json();
-    if (data.token) {
+    console.log(data);
+    if (data) {
       // Store the access token in the session storage
+      console.log(data.user)
       localStorage.setItem('token', data.token);
-      alert(data.message);
-      window.location = "../index.html";
+      localStorage.setItem('user',data.user)
+      // alert(data.message);
+      // window.location = "../index.html";
     } else {
       alert(data.message);
     }
