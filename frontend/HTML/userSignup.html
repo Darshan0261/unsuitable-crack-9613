@@ -9,28 +9,12 @@
     <link rel="stylesheet" href="../styles/userSignup.css">
     <link rel="stylesheet" href="../styles/navbar-footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
-
+   
   </head>
   <body>
     <!------------------- navigation bar start ------------>
 
-    <div class="nav">
-        <div  class="part1">
-                 <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
-            <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
-            <div>
-              <a  id="nbtn" href="../index.html">Home</a>
-             <a  id="nbtn" href="./allPhotographer.html">Dashboard</a>
-         </div>
-        
-     </div>
-     
-    <div class="part2">
-         <a id="nbtn" href="./login.html">Login</a>
-         <a id="nbtn"  href="./userSignup.html">Signup</a>
-         <button class="nav-button">Register as Studio</button>
-     </div>
-    </div>
+    <header></header>
     
      <!------------------- page contain  ------------>
     <div class="container">
@@ -55,7 +39,7 @@
             class="svg"
             width="100%"
             src="https://i1.adis.ws/i/canon/pro-ambassador-yasmin-albatoul-kitbag_27925a5cd9b14fdfb43ef11168a4ac35?$editorial-kitbag-16by9-dt-jpg$"
-            alt="postman_vector"
+            alt="photographer"
           />  
           </div>
          
@@ -140,42 +124,5 @@
   </body>
 </html>
 
-<script >
-    document.querySelector("form").addEventListener("submit", register);
-    
-
-    async function register(event) {
-    event.preventDefault();
-    console.log("4145")
-    try {
-        let name = document.querySelector("#name").value;
-        let mobile = document.querySelector("#mobile").value;
-        let email = document.querySelector("#email").value;
-        let password = document.querySelector("#password").value;
-
-        let regdata = {
-        name,
-        mobile,
-        email,
-        password,
-        };
-
-        let regurl = "http://localhost:4500/users/signup";
-
-        let res = await fetch(regurl, {
-        method: "POST",
-        body: JSON.stringify(regdata),
-        headers: {
-            "Content-type": "application/json",
-        },
-        });
-        let data = await res.json();
-        alert(data.message);
-        console.log(data);
-
-        window.location = "login.html";
-    } catch (err) {
-        console.log(err);
-    }
-    }
-</script>
+<script src="../scripts/navbar.js"></script>
+<script src="../scripts/userSignup.js"></script>

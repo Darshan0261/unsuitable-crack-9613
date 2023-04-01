@@ -69,23 +69,7 @@
 
       <!------------------- navigation bar start ------------>
 
-  <div class="nav">
-    <div  class="part1">
-             <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
-        <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
-        <div>
-             <a  id="nbtn" href="../index.html">Home</a>
-            <a  id="nbtn" href="./allPhotographer.html">Dashboard</a>
-        </div>
-       
-    </div>
-    
-   <div class="part2">
-        <a id="nbtn" href="./login.html">Login</a>
-        <a id="nbtn"  href="./userSignup.html">Signup</a>
-        <button class="nav-button">Register as Studio</button>
-    </div>
-</div>
+      <header></header>
 
  <!------------------- page contain  ------------>
    
@@ -99,23 +83,23 @@
 
         <form action="">
           <p>Fullname</p>
-          <input id="name" type="text"  />
+          <input id="name" type="text"  required/>
         <p>Phone Number</p>
-        <input id="mobile" type="number"  />
+        <input id="mobile" type="number"  required/>
      
         <p>Password</p>
-        <input id="pass" type="password"  />
+        <input id="pass" type="password"  required/>
         <p>Price</p>
-        <input id="price" type="number"  />
+        <input id="price" type="number"  required/>
         <p>Street</p>
-        <input id="street" type="text"  />
+        <input id="street" type="text"  required/>
         <p>City</p>
-        <input id="city" type="text"  />
+        <input id="city" type="text"  required/>
         <p>State</p>
-        <input id="state" type="text"  />
+        <input id="state" type="text" required />
      
         <p>Pin code</p>
-        <input id="zip_code" type="text"  />
+        <input id="zip_code" type="text"  required/>
      
         <p></p>
         <fieldset>
@@ -130,10 +114,10 @@
           </fieldset>
      
         <p>Start time</p>
-        <input id="start_time" type="time"  />
+        <input id="start_time" type="time"  required/>
      
         <p>End time</p>
-        <input id="end_time" type="time"  />
+        <input id="end_time" type="time" required />
      
           <p class="body">Stay signed in for 30 days</p>
         <p>
@@ -188,77 +172,5 @@
 </body>
 </html>
 
-
-<script>
-
-
-  
-    document.querySelector("form").addEventListener("submit", register);
-    
-
-    async function register(event) {
-
-    event.preventDefault();
-
-    let working_days=[]
-
-    for(let i=0;i<7;i++){
-        let day=document.querySelector(`#day${i}`)
-       if(day.checked){
-        working_days.push(Number(day.value)) 
-       }
-    }
-
-    try {
-        let name = document.querySelector("#name").value;
-        let mobile = document.querySelector("#mobile").value;
-        let password= document.querySelector("#pass").value;
-        let price = document.querySelector("#price").value;
-        let street = document.querySelector("#street").value;
-        let city = document.querySelector("#city").value;
-        let state = document.querySelector("#state").value;
-        let zip_code = document.querySelector("#zip_code").value;
-       
-        let start_time = document.querySelector("#start_time").value;  
-        let end_time= document.querySelector("#end_time").value;
-
-        let regdata = {
-        name,
-        mobile,
-        password,
-        price,
-        street,
-        city,
-        state,
-        zip_code,
-        working_days,
-        start_time,
-        end_time
-        };
-
-        console.log(regdata)
-
-        let regurl = "http://localhost:4500/studios/signup";
-
-        let res = await fetch(regurl, {
-        method: "POST",
-        body: JSON.stringify(regdata),
-        headers: {
-            "Content-type": "application/json",
-        },
-        });
-        let data = await res.json();
-        alert(data.message);
-        console.log(data);
-        if(data.message=="Studio Registered sucessfull"){
-          window.location = "login.html";
-        }
-        
-    } catch (err) {
-        console.log(err);
-    }
-
-
-    }
-
-  </script>
+<script src="../scripts/navbar.js"></script>
+<script src="../scripts/studioSignup.js"></script>
