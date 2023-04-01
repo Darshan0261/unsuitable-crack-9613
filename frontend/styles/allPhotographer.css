@@ -59,6 +59,17 @@
     border-radius: 3px;
     cursor: pointer;
 }
+.b_btn{
+    background-color: black;
+    color: white;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    font-size: 18px;
+    padding: 4px 7px;
+    /* margin-left: 250px; */
+    border-radius: 3px;
+    cursor: pointer;
+}
 .head{
     font-weight: bolder;
     margin-bottom: 2px;

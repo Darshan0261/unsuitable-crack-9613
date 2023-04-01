@@ -38,14 +38,14 @@ let renderData = (data) => {
         <h3 class="dark">${elem.street},${elem.city},${elem.state},${elem.zipcode}</h3>
         <h3 class="dark">${elem.mobile}</h3>
         <h4>Booking Charges :Rs,${elem.price}</h4>
-        <h4 class="hour">Working Hours : ${elem.start_hour} AM - ${elem.end_hour} PM</h4>
+        <h4 class="hour">Working Hours : ${elem.start_time} AM - ${elem.end_time} PM</h4>
         <button class="profile_btn">Wedding</button>
         <button class="profile_btn">babies</button>
         <button class="profile_btn">birthday</button>
         <button class="profile_btn">party</button>
         <button class="profile_btn">events</button>
         <br>
-        <button id="back_btn" class="see_btn">Go Back</button>
+        <button id="back_btn" class="b_btn">Go Back</button>
         <button data-id="${elem._id}" class="see_btn">See Profile</button>
 
 
@@ -57,11 +57,17 @@ let renderData = (data) => {
     for (let btn of all_btns) {
         btn.addEventListener("click", (e) => {
             let id = e.target.dataset.id;
-            localStorage.setItem("individual_id", id);
+            localStorage.setItem("individual_id", JSON.stringify(id));
             window.location.href = "individualpage.html";
             console.log(id)
         })
     }
+    let btns=document.querySelectorAll(".b_btn");
+     for(let bt of btns){
+        bt.addEventListener("click",()=>{
+            window.location.href="../index.html"
+        })
+     }
 }
 ////filteration area;
 let Default = document.getElementById("Default");
@@ -107,3 +113,9 @@ option.addEventListener("change",()=>{
          fetching_data(city,-1)
      }
 })
+let btn=document.getElementById("back_btn");
+btn.addEventListener("click",()=>{
+    window.location.href="index.html"
+})
+  
+

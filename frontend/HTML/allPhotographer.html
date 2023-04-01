@@ -8,12 +8,32 @@
     <link rel="icon" type="image/png" href="../nxm_logo.jpg"/>
     <link rel="stylesheet" href="../styles/allPhotographer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../styles/navbar-footer.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <title>Photographers</title>
 </head>
 
 <body>
+    <!-- Navbar -->
+    <div class="nav">
+        <div  class="part1">
+                 <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
+            <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
+            <div>
+                 <p>Home</p>
+            <p>Dashboard</p>
+            </div>
+           
+        </div>
+        
+       <div class="part2">
+            <p>Login</p>
+            <p>Signup</p>
+            <button class="nav-button">Register as Studio</button>
+        </div>
+    </div>
+<!-- main div -->
     <div id="parent_div">
         <div class="category">
            <h2>Categories By Location</h2>
@@ -115,6 +135,43 @@
         
 
     </div>
+ <!------------------- footer part  ------------>
+ <div class="footer">
+    <p id="ftext">Strike a Pose </p>
+    <div>
+        <div>
+            <p>Company</p>
+            <li>Blog
+            </li>
+            <li>About Us
+            </li>
+            <li>Contact Us</li>
+            <li>Cities</li>
+            
+        </div>
+        <div>
+            <p>Legal</p>
+            <li>Terms Of Service
+            </li>
+            <li>Privacy Policy
+            </li>
+            <li>Content Guidelines</li>
+            <li>Community Guidelines</li>
+            <li>3rd Party licenses</li>
+            
+        </div>
+    </div>
+    <hr>
+    <p>
+        Icons made by Freepik from www.flaticon.com And Font Awesome
+        </p>
+        <hr>
+        <p>
+            © Copyright 2023 Strike a Pose Technologies Pvt. Ltd. All rights reserved. | 
+            Terms Of Service | 
+            Privacy Policy
+            </p>
+</div>
 
 
 
@@ -123,4 +180,13 @@
 </body>
 
 </html>
+<script>
+    // <!------------------- navigation bar code ------------>
+let navbar=document.querySelector(".nav")
+   
+   window.onscroll=function(){
+       navbar.classList.add("sticky");
+   }
+// <!------------------- navigation bar code ------------>
+</script>
 <script src="../scripts/allPhotographer.js"></script>
