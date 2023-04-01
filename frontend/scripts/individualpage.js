@@ -1,6 +1,6 @@
 let id = JSON.parse(localStorage.getItem("individual_id"));
-console.log(typeof(id))
-console.log(id)
+// console.log(typeof(id))
+// console.log(id)
 // let demo="642679615eaa668f464f4bf6";
 
 
@@ -8,9 +8,9 @@ let fetching_data = async (id) => {
     
     try {
         let res = await fetch(`http://localhost:4500/studios/${id}`);
-        console.log(res)
+        // console.log(res)
     let data = await res.json();
-    console.log(data)
+    // console.log(data)
     let arr=[];
     arr.push(data);
     renderData(arr);
@@ -56,5 +56,51 @@ let renderData = (data) => {
 </div>
     `
     }).join("")}`
-   
+}
+let date_value=document.getElementById("date_value"); 
+let date_btn=document.getElementById("date_btn");
+let studio_id=JSON.parse(localStorage.getItem("individual_id"));
+// console.log(studio_id)
+async function trigger(){
+    let obj={
+        date:date_value.value
+    }
+    console.log(studio_id)
+    console.log(obj)
+   let res= await fetch(`http://localhost:4500/studios/slots/${studio_id}`,{
+        method:"POST",
+        headers:{
+          
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(obj)
+    })
+    let data = await res.json();
+
+    console.log(data)
+
+}
+let start_time=document.getElementById("start_time");
+let end_time=document.getElementById("end_time");
+async function book_slot(){
+    let obj={
+        start_time:start_time.value,
+        end_time:end_time.value,
+        date:date_value.value
+    }
+    console.log(obj)
+    let res=await fetch(`http://localhost:4500/studios/slots/book/${studio_id}`,{
+        method:"POST",
+        headers:{
+            authorization:JSON.parse(localStorage.getItem("token")),
+            "Content-Type":"application/json"
+
+        },
+        body:JSON.stringify(obj)
+    })
+    let data =await res.json();
+    alert(data.message);
+    window.location.href=""
+
+
 }

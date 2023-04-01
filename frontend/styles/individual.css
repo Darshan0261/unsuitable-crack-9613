@@ -125,3 +125,27 @@
     font-size: 25px;
     margin-top: 30px;
 }
+.date_div{
+    /* border: 1px solid black; */
+    padding-bottom: 30px;
+    width: 80%;
+    margin: auto;
+}
+.date_div>label{
+    font-size: 20px;
+    font-weight: bold;
+}
+.date_div>input{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left:30px;
+    width: 200px;
+    border: 1px solid black;
+}
+.date_div>button{
+    font-size: 18px;
+    font-weight: bold;
+    margin-left:30px;
+    width: 200px;
+    padding: 4px 7px;
+}
