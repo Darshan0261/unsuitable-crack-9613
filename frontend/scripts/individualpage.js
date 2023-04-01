@@ -7,7 +7,7 @@ let id = JSON.parse(localStorage.getItem("individual_id"));
 let fetching_data = async (id) => {
     
     try {
-        let res = await fetch(`http://localhost:4500/studios/${id}`);
+        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios/${id}`);
         // console.log(res)
     let data = await res.json();
     // console.log(data)
@@ -36,7 +36,7 @@ let renderData = (data) => {
     </div>
     <div>
         <h2 class="head">${elem.name}</h2>
-        <h3 class="dark">${elem.street},${elem.city},${elem.state},${elem.zipcode}</h3>
+        <h3 class="dark">${elem.street},${elem.city},${elem.state}</h3>
         <h3 class="dark">${elem.mobile}</h3>
         <h4 class="charges">Booking Charges :Rs,${elem.price}</h4>
         <h4 class="hour">Working Hours : ${elem.start_time} AM - ${elem.end_time} PM</h4>
@@ -67,7 +67,7 @@ async function trigger(){
     }
     console.log(studio_id)
     console.log(obj)
-   let res= await fetch(`http://localhost:4500/studios/slots/${studio_id}`,{
+   let res= await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/${studio_id}`,{
         method:"POST",
         headers:{
           
@@ -78,7 +78,27 @@ async function trigger(){
     let data = await res.json();
 
     console.log(data)
+    renderTime(data)
 
+}
+let flag=false;
+document.querySelector(".slots_div").style.display="none";
+let slot_div=document.querySelector(".slots_div_ul");
+let renderTime=(data)=>{
+    document.querySelector(".slots_div").style.display="block";
+        slot_div.innerHTML=`
+        ${data.map((elem)=>{
+            return `
+                
+                <li>${elem.start_time} - ${elem.end_time}</li>
+                
+            
+            `
+        }).join("")}
+    `
+    
+    
+    
 }
 let start_time=document.getElementById("start_time");
 let end_time=document.getElementById("end_time");
@@ -89,7 +109,7 @@ async function book_slot(){
         date:date_value.value
     }
     console.log(obj)
-    let res=await fetch(`http://localhost:4500/studios/slots/book/${studio_id}`,{
+    let res=await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/book/${studio_id}`,{
         method:"POST",
         headers:{
             authorization:JSON.parse(localStorage.getItem("token")),
@@ -100,7 +120,14 @@ async function book_slot(){
     })
     let data =await res.json();
     alert(data.message);
-    window.location.href=""
+    if(data.message=="Slot not available on given time"){
+        alert(data.message);
+    }
+    else{
+        alert(data.message);
+        window.location.href="./users/users.html"
+    }
+   
 
 
 }

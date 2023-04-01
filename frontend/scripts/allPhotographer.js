@@ -1,6 +1,6 @@
 let fetching_data = async (city,sort) => {
     if (!city==0) {
-        let res = await fetch(`http://localhost:4500/studios?city=${city}`);
+        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios?city=${city}`);
         let data = await res.json();
         console.log(data);
         renderData(data);
@@ -8,13 +8,14 @@ let fetching_data = async (city,sort) => {
     }
     else if(sort){
         console.log(sort)
-        let res = await fetch(`http://localhost:4500/studios?sort=${sort}`);
+        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios?sort=${sort}`);
         let data = await res.json();
         console.log(data);
         renderData(data);
     }
     else{
-        let res = await fetch("http://localhost:4500/studios");
+        let res = await fetch("https://erin-shiny-lizard.cyclic.app/studios");
+        
     let data = await res.json();
     console.log(data);
     renderData(data);
@@ -35,7 +36,7 @@ let renderData = (data) => {
     </div>
     <div>
         <h2 class="head">${elem.name}</h2>
-        <h3 class="dark">${elem.street},${elem.city},${elem.state},${elem.zipcode}</h3>
+        <h3 class="dark">${elem.street},${elem.city},${elem.state}</h3>
         <h3 class="dark">${elem.mobile}</h3>
         <h4>Booking Charges :Rs,${elem.price}</h4>
         <h4 class="hour">Working Hours : ${elem.start_time} AM - ${elem.end_time} PM</h4>
