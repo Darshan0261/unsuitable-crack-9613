@@ -99,23 +99,23 @@
 
         <form action="">
           <p>Fullname</p>
-          <input id="name" type="text"  />
+          <input id="name" type="text"  required/>
         <p>Phone Number</p>
-        <input id="mobile" type="number"  />
+        <input id="mobile" type="number"  required/>
      
         <p>Password</p>
-        <input id="pass" type="password"  />
+        <input id="pass" type="password"  required/>
         <p>Price</p>
-        <input id="price" type="number"  />
+        <input id="price" type="number"  required/>
         <p>Street</p>
-        <input id="street" type="text"  />
+        <input id="street" type="text"  required/>
         <p>City</p>
-        <input id="city" type="text"  />
+        <input id="city" type="text"  required/>
         <p>State</p>
-        <input id="state" type="text"  />
+        <input id="state" type="text" required />
      
         <p>Pin code</p>
-        <input id="zip_code" type="text"  />
+        <input id="zip_code" type="text"  required/>
      
         <p></p>
         <fieldset>
@@ -130,10 +130,10 @@
           </fieldset>
      
         <p>Start time</p>
-        <input id="start_time" type="time"  />
+        <input id="start_time" type="time"  required/>
      
         <p>End time</p>
-        <input id="end_time" type="time"  />
+        <input id="end_time" type="time" required />
      
           <p class="body">Stay signed in for 30 days</p>
         <p>
@@ -191,13 +191,9 @@
 
 <script>
 
-
-  
     document.querySelector("form").addEventListener("submit", register);
     
-
-    async function register(event) {
-
+  async function register(event) {
     event.preventDefault();
 
     let working_days=[]
@@ -238,7 +234,7 @@
 
         console.log(regdata)
 
-        let regurl = "http://localhost:4500/studios/signup";
+        let regurl = "https://erin-shiny-lizard.cyclic.app/studios/signup";
 
         let res = await fetch(regurl, {
         method: "POST",

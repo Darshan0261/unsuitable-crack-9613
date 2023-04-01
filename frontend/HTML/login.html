@@ -126,7 +126,6 @@
 //-----nav------
 
 
-
   document.querySelector("form").addEventListener("submit", login);
 
 async function login(event) {
@@ -144,7 +143,7 @@ async function login(event) {
     console.log(role)
 
     
-      let logurl = `http://localhost:4500/${role}/login`;
+      let logurl = `https://erin-shiny-lizard.cyclic.app/${role}/login`;
 
     let res = await fetch(logurl, {
       method: "POST",
