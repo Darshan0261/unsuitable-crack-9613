@@ -20,7 +20,8 @@ const UserSchema = new mongoose.Schema({
     role: {
         type: String,
         default: 'user'
-    }
+    },
+    profile_pic: String
 })
 
 const UserModel = mongoose.model('user', UserSchema)

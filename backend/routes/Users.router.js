@@ -73,6 +73,60 @@ userRouter.post("/logout", authentication, userAuth, async (req, res) => {
     }
 })
 
+userRouter.patch('/update/:id', authentication, userAuth, async (req, res) => {
+    const { token } = req.body;
+    const user_id = req.params['id'];
+    if (token.id != user_id) {
+        return res.status(401).send({ message: 'Access Denied' });
+    }
+    const payload = req.body;
+    if (payload.password) {
+        return res.status(400).send({ message: 'Bad Request - Wrong Request' });
+    }
+    try {
+        await UserModel.findOneAndUpdate({ _id: user_id }, payload);
+        res.send({ message: 'Profile Updated Sucessfully' })
+    } catch (error) {
+        return res.status(501).send({ message: error.message });
+    }
+})
+
+userRouter.patch('/update/password/:id', authentication, userAuth, async (req, res) => {
+    const { token } = req.body;
+    const user_id = req.params['id'];
+    if (token.id != user_id) {
+        return res.status(401).send({ message: 'Access Denied' });
+    }
+    const { old_password, new_password } = req.body;
+    if (!old_password || !new_password) {
+        return res.status(428).send({ message: 'Password Required' })
+    }
+    try {
+        const user = await UserModel.findOne({ _id: user_id });
+        bcrypt.compare(old_password, user.password, function (err, result) {
+            if (err) {
+                return res.status(501).send({ message: err.message });
+            }
+            if (!result) {
+                return res.status(403).send({ message: "Password does not match" })
+            }
+            bcrypt.hash(new_password, +process.env.saltRounds, async function (err, hashedPass) {
+                if (err) {
+                    return res.status(501).send({ message: err.message });
+                }
+                try {
+                    await UserModel.findOneAndUpdate({ _id: user_id }, { password: hashedPass });
+                    return res.send({ message: 'Password Changed Sucessfully' })
+                } catch (error) {
+                    return res.status(501).send({ message: error.message });
+                }
+            });
+        });
+    } catch (error) {
+        return res.status(501).send({ message: error.message });
+    }
+})
+
 module.exports = {
     userRouter
 }
