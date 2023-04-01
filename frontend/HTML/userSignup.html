@@ -19,17 +19,17 @@
                  <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
             <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
             <div>
-                 <p>Home</p>
-            <p>Dashboard</p>
-            </div>
-           
-        </div>
+              <a  id="nbtn" href="../index.html">Home</a>
+             <a  id="nbtn" href="./allPhotographer.html">Dashboard</a>
+         </div>
         
-       <div class="part2">
-            <p>Login</p>
-            <p>Signup</p>
-            <button class="nav-button">Register as Studio</button>
-        </div>
+     </div>
+     
+    <div class="part2">
+         <a id="nbtn" href="./login.html">Login</a>
+         <a id="nbtn"  href="./userSignup.html">Signup</a>
+         <button class="nav-button">Register as Studio</button>
+     </div>
     </div>
     
      <!------------------- page contain  ------------>
@@ -85,7 +85,7 @@
             By creating an account, I agree to the Terms and Privacy Policy.
           </p>
 
-          <button type="submit" class="btn">Create free account</button>
+          <input type="submit" class="btn" value="Create account"></input>
         </form>
          
 
@@ -141,7 +141,7 @@
 </html>
 
 <script >
-    document.querySelector(".btn").addEventListener("click", register);
+    document.querySelector("form").addEventListener("submit", register);
     
 
     async function register(event) {

@@ -27,7 +27,7 @@
   
 }
 
-.part1>div>p{
+.part1>div>a{
     margin-left: 20px;
 }
 
@@ -84,6 +84,11 @@ hr{
     font-weight: 700;
     line-height: 50px;
     color: rgb(255, 255, 255);
-
-
 }
+
+
+    #nbtn {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-weight: 400;
+        }
