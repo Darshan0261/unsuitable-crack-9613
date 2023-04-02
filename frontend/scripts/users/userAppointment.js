@@ -1,10 +1,15 @@
 
-var currentDate = new Date();
-//   console.log(currentDate)
-var dateString = currentDate.toDateString();
-document.getElementById("currentDate").innerText = dateString;
+const date_filter = document.querySelector('#date-filter');
+const status_filter = document.querySelector("#filter");
 
 let bag = [];
+
+const token = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("user"));
+
+console.log(token);
+console.log(user);
+
 
 async function dashboard() {
 
@@ -14,7 +19,7 @@ async function dashboard() {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDI2NzZmNzhiYjllOGVlZWIyMDU5NTYiLCJpYXQiOjE2ODAyNDU4Njl9.1w-M8Z3MP1YXfR2PA9w4xi7oj5AiE99XLSSPTyafRBs"
+                Authorization: token
             }
         });
     } catch (error) {
@@ -35,11 +40,27 @@ let tablebody = document.querySelector("#tbody");
 
 function display1(out) {
     tablebody.innerHTML = "";
-    out.forEach((ele) => {
+    const tablehead = document.querySelector('#tablehead')
+    // if(document.querySelector("#filter").value == "Rejected") {
+    //     document.querySelector('rejected-head').style.display = 'none';
+    // } 
+    out.forEach(async (ele) => {
         let row = document.createElement("tr");
 
-        let studioId = document.createElement("td");
-        studioId.innerText = ele.studio_id;
+        let res = await fetch(`http://localhost:4500/studios/${ele.studio_id}`)
+
+        let studio = await res.json()
+
+
+        let studioName = document.createElement("td");
+        studioName.innerText = studio.name;
+
+        studioName.style.cursor = 'pointer';
+
+        studioName.addEventListener('click', () => {
+            localStorage.setItem('individual_id', JSON.stringify(ele.studio_id));
+            window.open('../individualpage.html')
+        })
 
         let startTime = document.createElement("td");
         startTime.innerText = ele.start_time;
@@ -57,22 +78,29 @@ function display1(out) {
         let bill = document.createElement("td");
         bill.innerText = ele.bill;
 
-        let button = document.createElement("button");
-        button.className = "cancelbtn"
-        button.innerText = "Cancel";
-        button.addEventListener("click", () => {
-            status.innerText = "Cancelled";
-            updatestatus(status.innerText, ele.user_id, ele._id);
-            // console.log(status.innerText);
-        })
+        if (document.querySelector("#filter").value != "Rejected") {
+            let button = document.createElement("button");
+            button.className = "cancelbtn"
+            button.innerText = "Cancel";
+            button.addEventListener("click", () => {
+                status.innerText = "Rejected";
+                updatestatus(status.innerText, ele.user_id, ele._id);
+                // console.log(status.innerText);
+            })
+            row.append(studioName, startTime, endTime, date, status, bill, button);
+        } else {
+            row.append(studioName, startTime, endTime, date, status, bill);
+        }
 
-        row.append(studioId, startTime, endTime, date, status, bill, button);
+
+
+        // row.append(studioName, startTime, endTime, date, status, bill, button);
 
         tablebody.append(row);
     })
 
     async function updatestatus(data, data1, apid) {
-        console.log(data, data1, apid)
+        // console.log(data, data1, apid)
         // let dat1=JSON.parse(data1)
 
         try {
@@ -80,7 +108,7 @@ function display1(out) {
                 body: JSON.stringify({ status: data }),
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDI2NzZmNzhiYjllOGVlZWIyMDU5NTYiLCJpYXQiOjE2ODAyNDU4Njl9.1w-M8Z3MP1YXfR2PA9w4xi7oj5AiE99XLSSPTyafRBs",
+                    Authorization: token
                 },
                 method: "PATCH"
             });
@@ -112,14 +140,43 @@ select.addEventListener("change", () => {
     let filterdata = bag.filter(function (ele) {
         return ele.status == value
     })
-    console.log(filterdata);
+    // console.log(filterdata);
     display1(filterdata);
-    
-    
+
+
 })
 
 
+let sort = document.querySelector("#sort");
 
+sort.addEventListener("change", () => {
+    let val = sort.value;
+    // console.log(val);
+    // console.log(bag);
+    if (val == "NTO") {
+        bag.sort((a, b) => new Date(b.date) - new Date(a.date))
+    }
+    if (val == "OTN") {
+        bag.sort((a, b) => new Date(a.date) - new Date(b.date))
+    }
+    display1(bag)
+})
+
+date_filter.addEventListener('change', async () => {
+    const date = date_filter.value;
+    const res = await fetch(`http://localhost:4500/appointment?date=${date}`, {
+        headers: {
+            Authorization: token
+        }
+    })
+    if(res.ok) {
+        const appointments = await res.json()
+        display1(appointments)
+    } else {
+        alert('Something Went Wrong')
+    }
+    
+})
 
 
 

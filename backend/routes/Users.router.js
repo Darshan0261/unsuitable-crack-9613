@@ -52,8 +52,9 @@ userRouter.post('/login', async (req, res) => {
             if (!result) {
                 return res.status(401).send({ message: 'Wrong Credentials' });
             }
+            console.log(user)
             const token = jwt.sign({ name: user.name, role: user.role, id: user._id }, process.env.KEY);
-            res.send({ message: 'Login Sucessfull', token })
+            res.send({ message: 'Login Sucessfull', token, user })
         });
     } catch (error) {
         return res.status(500).send({ message: error.message });

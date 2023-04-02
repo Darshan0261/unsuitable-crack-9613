@@ -11,24 +11,7 @@
 </head>
 <body>
 <!------------------- navigation bar start ------------>
-
-    <div class="nav">
-        <div  class="part1">
-                 <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
-            <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
-            <div>
-                 <p>Home</p>
-            <p>Dashboard</p>
-            </div>
-           
-        </div>
-        
-       <div class="part2">
-            <p>Login</p>
-            <p>Signup</p>
-            <button class="nav-button">Register as Studio</button>
-        </div>
-    </div>
+    <header></header>
 
      <!------------------- page contain  ------------>
 
@@ -37,7 +20,7 @@
               <p id="mtext">Strike a Pose</p> 
             <span id="btext">Book </span><span> a Photoshoot Today</span>
             <br>
-            <button class="top-button">Book A Studio</button>  
+            <button onclick="openStudioPage()" class="top-button">Book A Studio</button>  
             </div>
             
         </div>
@@ -359,6 +342,7 @@
 </body>
 </html>
 
+<script src="./scripts/indexNav.js"></script>
 <script>
      // <!------------------- navigation bar code ------------>
  let navbar=document.querySelector(".nav")
@@ -367,4 +351,11 @@
         navbar.classList.add("sticky");
     }
 // <!------------------- navigation bar code ------------>
+
+
+   function openStudioPage(){
+     window.location="./HTML/allPhotographer.html"
+   }
+
+   document.querySelector(".cate").addEventListener("click",openStudioPage)
 </script>

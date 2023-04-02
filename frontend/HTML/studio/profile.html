@@ -27,12 +27,14 @@
       <div class="main">
         <div class="profile-maindiv">
           <div class="profile-child-div">
-            <img src="../../asstes/Profile.png" alt="">
+            <div id="profile-img">
+              <img  width="50%" style="margin-left: 25%;" src="../../asstes/Profile.png" alt="">
+            </div>
             <hr />
             <ul class="profile-ul">
               <div class="more-info-childs">
-                <li><i class="fa-solid fa-user greenli"></i></li>
-                <div>Ananya</div>
+                <li><i class="fa-solid fa-building greenli"></i></li>
+                <div id="studio-name" >Studio</div>
               </div>
               <div class="more-info-childs">
                 <li><i class="fa-solid fa-users-rays pinkli"></i></li>
@@ -40,11 +42,11 @@
               </div>
               <div class="more-info-childs">
                 <li><i class="fa-solid fa-phone greenli"></i></li>
-                <div>6289020032</div>
+                <div id="photographer-number">6289020032</div>
               </div>
             </ul>
             <div>
-              <button class="custom-btn btn-14"  onclick="editProfileForm()">Read More</button>
+              <button class="custom-btn btn-14"  onclick="editProfileForm()">Edit Profile</button>
             </div>
           </div>
           <div class="profile-other-info">
@@ -53,12 +55,16 @@
                 <h2>Other Information</h2>
                 <ul>
                   <div class="more-info-childs">
+                    <li><i class="fa-solid fa-user greenli"></i></li>
+                    <div id="name">Kunal</div>
+                  </div>
+                  <div class="more-info-childs">
                     <li><i class="fa-solid fa-venus-mars pinkli"></i></li>
-                    <div>Female</div>
+                    <div id="photographer-gender">Male</div>
                   </div>
                   <div class="more-info-childs">
                     <li><i class="fa-sharp fa-solid fa-calendar-days greenli"></i></li>
-                    <div>22</div>
+                    <div id="years-old">22</div>
                   </div>
                   <div class="more-info-childs">
                     <li><span class="material-symbols-outlined pinkli">local_police</span></li>
@@ -66,7 +72,7 @@
                   </div>
                   <div class="more-info-childs">
                     <li><i class="fa-sharp fa-solid fa-house greenli"></i></li>
-                    <div>Kolkata</div>
+                    <div id="city">Kolkata</div>
                   </div>
                 </ul>
               </div>
@@ -76,16 +82,20 @@
                 <h2>Studio Information</h2>
                 <ul>
                   <div class="more-info-childs">
-                    <li><i class="pinkli fa-sharp fa-regular fa-clock"></i></li>
-                    <div>10:00 - 17:00</div>
+                    <li><i class="greenli fa-sharp fa-solid fa-business-time"></i></li>
+                    <div><span id="start-time">start</span> - <span id="end-time">end</span></div>
                   </div>
                   <div class="more-info-childs">
-                    <li><i class="fa-solid fa-briefcase pinkli"></i></li>
-                    <div>BookMyShoot Studio</div>
+                    <li><i class="fa-solid fa-money-bill-1-wave pinkli"></i></li>
+                    <div >₹ <span id="price">1000</span></div>
                   </div>
                   <div class="more-info-childs">
-                    <li><i class="greenli fa-sharp fa-solid fa-house"></i></li>
-                    <div>D-128 D.M.Bagan, Kolkata-700024</div>
+                    <li><i class="greenli fa-solid fa-calendar-check"></i></li>
+                    <div id="working-days">days</div>
+                  </div>
+                  <div class="more-info-childs">
+                    <li><i class="pinkli fa-sharp fa-solid fa-house"></i></li>
+                    <div id="address">D-128 D.M.Bagan, Kolkata-700024</div>
                   </div>
                 </ul>
               </div>
@@ -104,22 +114,15 @@
                 <div class="close" onclick="closeProfileForm()"><span class="material-symbols-outlined">close</span></div>
               </div>
               <hr>
-              <form action="">
+              <form action="" id="edit_form">
                 <div class="profile_details">
                   <label>Name</label>
-                  <input type="text" class="mrgn-btm edit-name" placeholder="Enter your name">
+                  <input type="text" class="mrgn-btm edit-name" placeholder="Enter your name" id="edit_name">
                   <label>Mobile Number</label>
-                  <input type="text" class="mrgn-btm phone_number" placeholder="Enter new phone number">
-                  <label>Gender</label>
-                      <select class="mrgn-btm" name="gender" id="">
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Other">Other</option>
-                      </select>
-                      <label>DOB:</label>
-                      <input type="date"  class="mrgn-btm"  placeholder="dob"/>
-                      <label>City</label>
-                      <input type="text"  class="mrgn-btm"  placeholder="Enter the new city" />
+                  <input type="text" class="mrgn-btm phone_number" placeholder="Enter new phone number" id="edit_number">
+                  
+                      <label>Price</label>
+                      <input type="number"  class="mrgn-btm"  placeholder="Price" id="edit_price"/>
                     </div>
                   <hr>
                   <div class="button_div">

@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="users.html"><i class="fas fa-columns">Dashboard</i></a></li>
                 <li><a href="userAppontment.html"><i class="far fa-calendar-check">Appointments</i></a></li>
-                <li><a href="#account"><i class="fas fa-user"></i>My account</a></li>
+                <li><a href="useraccount.html"><i class="fas fa-user"></i>My account</a></li>
                 <li><a href="#departments"><i class="fab fa-squarespace"></i>Categories</a></li>
             </ul>
             <div id="child1btn">
@@ -32,25 +32,34 @@
                         <option>Status</option>
                         <option value="Accepted">Accepted</option>
                         <option value="Pending">Pending</option>
-                        <option value="Cancelled">Cancelled</option>
+                        <option value="Rejected">Rejected</option>
                     </select>
                 </div>
 
                 <div class="dat">
-                    <p id="currentDate"></p>
+                    <select id="sort">
+                        <option>Date Sort</option>
+                        <option value="NTO">New To Old</option>
+                        <option value="OTN">Old To New</option>
+
+                    </select>
+                </div>
+
+                <div>
+                    <input type="date" name="date" id="date-filter">
                 </div>
             </div>
             <div class="mid">
                 <table>
                     <thead>
-                        <tr>
-                            <th>studio_id</th>
+                        <tr id="tablehead">
+                            <th>Studio Name</th>
                             <th>start_time</th>
                             <th>end_time</th>
                             <th>date</th>
                             <th>status</th>
                             <th>bill</th>
-                            <th>Reject</th>
+                            <th id="rejected-head">Reject</th>
                         </tr>
                     </thead>
                     <tbody id="tbody">

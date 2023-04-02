@@ -1,5 +1,6 @@
 // const tableBody = document.querySelector('tbody');
 
+
 let appointments = [];
 const baseURL = 'https://erin-shiny-lizard.cyclic.app';
 
@@ -24,6 +25,28 @@ async function fetchUserDetails() {
     }
   })
 }
+=======
+// let arr = []
+
+
+const url = 'https://erin-shiny-lizard.cyclic.app';
+
+async function fetchAppointments(){
+    let res = await fetch(`${url}/appointment`)
+    if(res.ok) {
+        let data = await res.json()
+        arr = data;
+        fetchUserDetails()
+    }
+    
+}
+async function fetchUserDetails(){
+    let res = await fetch('users')
+    let data = await res.json()
+
+}
+
+
 // function displayAppointment(data){
 //     tableBody.innerHTML = data.map((item,index)=>{
 //         return `

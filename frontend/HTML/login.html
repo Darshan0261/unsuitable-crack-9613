@@ -14,24 +14,8 @@
   </head>
   <body>
   <!------------------- navigation bar start ------------>
-
-  <div class="nav">
-    <div  class="part1">
-             <img width="100%" src="https://i.postimg.cc/KvWzQQz2/Whats-App-Image-2023-03-28-at-2-23-14-PM.jpg" alt="logo">
-        <img  width="100%"  src="https://i.postimg.cc/cHrqvmyc/Stike.png" alt="">
-        <div>
-             <p>Home</p>
-        <p>Dashboard</p>
-        </div>
-       
-    </div>
-    
-   <div class="part2">
-        <p>Login</p>
-        <p>Signup</p>
-        <button class="nav-button">Register as Studio</button>
-    </div>
-</div>
+    <header></header>
+ 
 
  <!------------------- page contain  ------------>
     <div class="container">
@@ -46,20 +30,19 @@
         <div>
           <span class="head"> Sign In</span>
           <span class="body">
-            <a href="userSignup.html"> Create Account </a>instead?</span
-          >
+            <a href="userSignup.html"> Create Account </a>instead?</span>
         </div>
         <form action="">
-             <p>Email</p>
-            <input id="email" type="text" required />
+             <p>Phone Number</p>
+            <input id="mobile" type="text" required />
 
             <p>Password</p>
             <input id="password" type="password" required />
 
             <p>Login As</p>
             <select name="role" id="role">
-              <option value="user">User</option>
-              <option value="studio">Studio</option>
+              <option value="users">User</option>
+              <option value="studios">Studio</option>
         
             </select>
           <div class="lastline">
@@ -67,7 +50,7 @@
           <a href="">forgot password?</a>
         </div>
 
-        <button type="submit" class="btn">Sign in</button>
+        <input type="submit" class="btn" value="Sign in"></input>
 
         </form>
         
@@ -118,3 +101,8 @@
 
   </body>
 </html>
+
+
+<script src="../scripts/navbar.js"></script>
+<script src="../scripts/login.js"></script>
+
