@@ -1,5 +1,6 @@
 
-
+const date_filter = document.querySelector('#date-filter');
+const status_filter = document.querySelector("#filter");
 
 let bag = [];
 
@@ -39,11 +40,27 @@ let tablebody = document.querySelector("#tbody");
 
 function display1(out) {
     tablebody.innerHTML = "";
-    out.forEach((ele) => {
+    const tablehead = document.querySelector('#tablehead')
+    // if(document.querySelector("#filter").value == "Rejected") {
+    //     document.querySelector('rejected-head').style.display = 'none';
+    // } 
+    out.forEach(async (ele) => {
         let row = document.createElement("tr");
 
-        let studioId = document.createElement("td");
-        studioId.innerText = ele.studio_id;
+        let res = await fetch(`http://localhost:4500/studios/${ele.studio_id}`)
+
+        let studio = await res.json()
+
+
+        let studioName = document.createElement("td");
+        studioName.innerText = studio.name;
+
+        studioName.style.cursor = 'pointer';
+
+        studioName.addEventListener('click', () => {
+            localStorage.setItem('individual_id', JSON.stringify(ele.studio_id));
+            window.open('../individualpage.html')
+        })
 
         let startTime = document.createElement("td");
         startTime.innerText = ele.start_time;
@@ -61,16 +78,23 @@ function display1(out) {
         let bill = document.createElement("td");
         bill.innerText = ele.bill;
 
-        let button = document.createElement("button");
-        button.className = "cancelbtn"
-        button.innerText = "Cancel";
-        button.addEventListener("click", () => {
-            status.innerText = "Rejected";
-            updatestatus(status.innerText, ele.user_id, ele._id);
-            // console.log(status.innerText);
-        })
+        if (document.querySelector("#filter").value != "Rejected") {
+            let button = document.createElement("button");
+            button.className = "cancelbtn"
+            button.innerText = "Cancel";
+            button.addEventListener("click", () => {
+                status.innerText = "Rejected";
+                updatestatus(status.innerText, ele.user_id, ele._id);
+                // console.log(status.innerText);
+            })
+            row.append(studioName, startTime, endTime, date, status, bill, button);
+        } else {
+            row.append(studioName, startTime, endTime, date, status, bill);
+        }
 
-        row.append(studioId, startTime, endTime, date, status, bill, button);
+
+
+        // row.append(studioName, startTime, endTime, date, status, bill, button);
 
         tablebody.append(row);
     })
@@ -118,27 +142,41 @@ select.addEventListener("change", () => {
     })
     // console.log(filterdata);
     display1(filterdata);
-    
-    
+
+
 })
 
 
-let sort=document.querySelector("#sort");
+let sort = document.querySelector("#sort");
 
-sort.addEventListener("change",()=>{
-    let val=sort.value;
+sort.addEventListener("change", () => {
+    let val = sort.value;
     // console.log(val);
     // console.log(bag);
-    if(val=="NTO"){
-        bag.sort((a,b)=>new Date(b.date) - new Date(a.date))
+    if (val == "NTO") {
+        bag.sort((a, b) => new Date(b.date) - new Date(a.date))
     }
-    if(val=="OTN"){
-        bag.sort((a,b)=>new Date(a.date) - new Date(b.date))
+    if (val == "OTN") {
+        bag.sort((a, b) => new Date(a.date) - new Date(b.date))
     }
     display1(bag)
 })
 
-
+date_filter.addEventListener('change', async () => {
+    const date = date_filter.value;
+    const res = await fetch(`http://localhost:4500/appointment?date=${date}`, {
+        headers: {
+            Authorization: token
+        }
+    })
+    if(res.ok) {
+        const appointments = await res.json()
+        display1(appointments)
+    } else {
+        alert('Something Went Wrong')
+    }
+    
+})
 
 
 

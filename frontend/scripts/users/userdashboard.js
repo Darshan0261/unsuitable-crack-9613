@@ -78,3 +78,25 @@ function display(out) {
     middle4.append(rejected);
 
 }
+
+let logbtn= document.querySelector("#logout");
+
+logbtn.addEventListener("click",out);
+
+async function out(){
+    try {
+        let res=await fetch(`http://localhost:4500/users/logout`,{
+            
+        // body:,
+        headers:{
+           "Content-Type":"application/json",
+           Authorization: token
+            },
+            method:"POST"
+        });
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
