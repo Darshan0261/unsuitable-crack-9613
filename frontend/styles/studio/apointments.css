@@ -1,15 +1,34 @@
 body{
   background-color: whitesmoke;
 }
-.appointment-parent > p {
+.appointment-head p {
   font-size: 30px;
   font-weight: 700;
+}
+.appointment-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort_filter{
+  height: 30px;
+  margin-top: 3%;
+}
+
+.sort_filter select{
+  margin-left: -5%;
+  margin-right: 5%;
 }
 
 .appointment-child > table {
   width: 100%;
   font-size: 18px;
   text-align: left;
+}
+
+.sort_filter{
+  display: flex;
+  flex-direction: end;
 }
 
 /* ======= Button ======= */

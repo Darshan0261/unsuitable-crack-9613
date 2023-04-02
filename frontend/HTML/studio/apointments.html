@@ -17,7 +17,7 @@
           <li><a href="../studio/profile.html"><span class="material-symbols-outlined">account_circle</span>Profile</a></li>
           <li><a href="../studio/albums.html"><span class="material-symbols-outlined"> photo_library </span>Albums</a></li>
           <li><a href="#"><span class="material-symbols-outlined"> beenhere </span>Appointments</a></li>
-          <li><a href="#"><span class="material-symbols-outlined"> logout </span>Logout</a></li>
+          <li onclick="logout()"><a href="#"><span class="material-symbols-outlined"> logout </span>Logout</a></li>
         </ul>
       </div>
     </section>
@@ -25,13 +25,19 @@
     <section>
       <div class="main">
         <div class="appointment-parent">
-          <p>Appointment Details</p> 
-          <select name="status-filter" id="status-filter">
-            <option value="Pending">Pending</option>
-            <option value="Accepted">Accepted</option>
-            <option value="Rejected">Rejected</option>
-          </select>
-          <input type="date" name="date-filter" id="date-filter">
+          <div class="appointment-head">
+            <div>
+              <p>Appointment Details</p> 
+            </div>
+            <div class="sort_filter">
+              <select name="status-filter" id="status-filter">
+                <option value="Pending">Pending</option>
+                <option value="Accepted">Accepted</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+              <input type="date" name="date-filter" id="date-filter">
+            </div>
+          </div>
           <div class="appointment-child">
             <table>
               <thead>

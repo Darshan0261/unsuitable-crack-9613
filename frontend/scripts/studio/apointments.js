@@ -279,3 +279,11 @@ async function declineAppointment(id) {
 //     alert("Appointment Accepted");
 //   } else alert("Something went wrong while accepting the appointment");
 // }
+
+
+function logout(){
+  localStorage.clear();
+  window.location.href = "../../index.html";
+
+}
+
