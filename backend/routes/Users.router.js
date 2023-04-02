@@ -141,8 +141,8 @@ userRouter.delete('/delete/:id', authentication, userAuth, async (req, res) => {
             app.status = 'Rejected';
         })
         await appointments.save();
-        // await UserModel.findOneAndDelete({_id: user_id});
-        // return res.send({message: 'Account Deleted Sucessfully'})
+        await UserModel.findOneAndDelete({_id: user_id});
+        return res.send({message: 'Account Deleted Sucessfully'})
     } catch (error) {
         return res.status(501).send({message: error.message})       
     }

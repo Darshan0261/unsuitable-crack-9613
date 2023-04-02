@@ -100,7 +100,7 @@ appointmentRouter.patch('/reject/:id', authentication, async (req, res) => {
         const appointment = await AppointmentModel.findOne({ _id: id, user_id });
       console.log(appointment)
         if (appointment) {
-            await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Cancelled' })
+            await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Rejected' })
             res.send({ message: 'Appointment Cancelled' })
             return
         } else {

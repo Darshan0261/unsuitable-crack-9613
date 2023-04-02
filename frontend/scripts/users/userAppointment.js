@@ -6,6 +6,13 @@ document.getElementById("currentDate").innerText = dateString;
 
 let bag = [];
 
+const token = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("user"));
+
+console.log(token);
+console.log(user);
+
+
 async function dashboard() {
 
     let res;
@@ -14,7 +21,7 @@ async function dashboard() {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDI2NzZmNzhiYjllOGVlZWIyMDU5NTYiLCJpYXQiOjE2ODAyNDU4Njl9.1w-M8Z3MP1YXfR2PA9w4xi7oj5AiE99XLSSPTyafRBs"
+                Authorization: token
             }
         });
     } catch (error) {
@@ -61,7 +68,7 @@ function display1(out) {
         button.className = "cancelbtn"
         button.innerText = "Cancel";
         button.addEventListener("click", () => {
-            status.innerText = "Cancelled";
+            status.innerText = "Rejected";
             updatestatus(status.innerText, ele.user_id, ele._id);
             // console.log(status.innerText);
         })
@@ -80,7 +87,7 @@ function display1(out) {
                 body: JSON.stringify({ status: data }),
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDI2NzZmNzhiYjllOGVlZWIyMDU5NTYiLCJpYXQiOjE2ODAyNDU4Njl9.1w-M8Z3MP1YXfR2PA9w4xi7oj5AiE99XLSSPTyafRBs",
+                    Authorization: token
                 },
                 method: "PATCH"
             });
