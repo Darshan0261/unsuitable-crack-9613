@@ -1,8 +1,5 @@
 
-var currentDate = new Date();
-//   console.log(currentDate)
-var dateString = currentDate.toDateString();
-document.getElementById("currentDate").innerText = dateString;
+
 
 let bag = [];
 
@@ -125,6 +122,21 @@ select.addEventListener("change", () => {
     
 })
 
+
+let sort=document.querySelector("#sort");
+
+sort.addEventListener("change",()=>{
+    let val=sort.value;
+    // console.log(val);
+    // console.log(bag);
+    if(val=="NTO"){
+        bag.sort((a,b)=>new Date(b.date) - new Date(a.date))
+    }
+    if(val=="OTN"){
+        bag.sort((a,b)=>new Date(a.date) - new Date(b.date))
+    }
+    display1(bag)
+})
 
 
 
