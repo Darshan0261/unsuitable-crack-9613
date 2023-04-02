@@ -142,4 +142,6 @@ editForm.addEventListener("submit", async (e) => {
 function logout(){
   localStorage.clear();
   window.location.href = "../../index.html";
+
 }
+
