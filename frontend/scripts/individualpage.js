@@ -76,12 +76,7 @@ async function trigger() {
         body: JSON.stringify(obj)
     })
     let data = await res.json();
-    if (res.ok) {
-        console.log(data)
-        renderTime(data)
-    } else {
-        alert(data.message)
-    }
+    renderTime(data)
 }
 let flag = false;
 document.querySelector(".slots_div").style.display = "none";
