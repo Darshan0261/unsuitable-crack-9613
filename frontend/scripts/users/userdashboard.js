@@ -1,4 +1,9 @@
 
+const token = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("user"));
+
+console.log(token);
+console.log(user);
 
 
 
@@ -6,11 +11,11 @@ async function dashboard() {
 
     let res;
     try {
-        res = await fetch(`http://localhost:4500/appointment/`, {
+        res = await fetch(`https://erin-shiny-lizard.cyclic.app/appointment/`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFyc2hhbiIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2NDI2NzZmNzhiYjllOGVlZWIyMDU5NTYiLCJpYXQiOjE2ODAyNDU4Njl9.1w-M8Z3MP1YXfR2PA9w4xi7oj5AiE99XLSSPTyafRBs"
+                Authorization: token,
             }
         });
     } catch (error) {
@@ -51,7 +56,7 @@ function display(out) {
             count1++
         } else if (ele.status == "Pending") {
             count2++
-        } else if (ele.status == "Cancelled") {
+        } else if (ele.status == "Rejected") {
             count3++;
         }
     })
@@ -72,4 +77,26 @@ function display(out) {
     rejected.innerText = count3;
     middle4.append(rejected);
 
+}
+
+let logbtn= document.querySelector("#logout");
+
+logbtn.addEventListener("click",out);
+
+async function out(){
+    try {
+        let res=await fetch(`https://erin-shiny-lizard.cyclic.app/users/logout`,{
+            
+        // body:,
+        headers:{
+           "Content-Type":"application/json",
+           Authorization: token
+            },
+            method:"POST"
+        });
+
+
+    } catch (error) {
+        console.log(error);
+    }
 }

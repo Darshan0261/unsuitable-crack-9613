@@ -1,6 +1,3 @@
-/*
-
-*/
 
 async function fetchStudio() {
     try {
@@ -30,4 +27,6 @@ function displayStudiosLength(data) {
 function logout(){
     localStorage.clear();
     window.location.href = "../../index.html";
+
 }
+

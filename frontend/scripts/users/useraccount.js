@@ -1,41 +1,78 @@
+const form = document.querySelector("#form");
+
+const inp = document.querySelectorAll(".in");
+// console.log(inp)
+let val;
+inp.forEach(ele => {
+    ele.disabled = true;
+    val = true;
+});
+// console.log(val);
+
 const update = document.querySelector("#update");
+
+
+
+const nameInput = document.querySelector("#name");
+const mobileInput = document.querySelector("#mobile");
+const passwordInput = document.querySelector("#password");
+const emailInput = document.querySelector("#email");
+const imageInput = document.querySelector("#img");
+
+// form.disabled = true;
 
 update.addEventListener("click", (e) => {
     e.preventDefault();
-    let name = document.querySelector("#name").value;
-    let mobile = document.querySelector("#mobile").value;
-    let password = document.querySelector("#password").value;
-    let email = document.querySelector("#email").value;
-    let image = document.querySelector("#img").value;
 
-if(name==""||mobile==""||email==""){
- alert("specified fields are empty");
- return;
-}
 
-    let obj = {
-        name,
-        mobile,
-        password,
-        email,
-        image
+
+    if (val) {
+        inp.forEach(ele => {
+            ele.disabled = false;
+            update.innerText = "Update";
+        })
+        val = false;
+
+    } else {
+
+        val = true;
+        update.innerText = "Edit";
+
+        let name = nameInput.value;
+        let mobile = mobileInput.value
+        let password = passwordInput.value;
+        let email = emailInput.value || "";
+        let image = imageInput.value;
+
+        if (name == "" || mobile == "") {
+            alert("specified fields are empty");
+            return;
+        }
+
+        let obj = {
+            name,
+            mobile,
+            password,
+            email,
+            image
+        }
+        update1(obj, id);
     }
-    // console.log(obj);
-    update1(obj, id);
 })
 
 const token = JSON.parse(localStorage.getItem("token"));
 const user = JSON.parse(localStorage.getItem("user"));
 
-// console.log(token);
+console.log(token);
+console.log(user);
 
-let id = user._id
-
+let id = user.id
+console.log(id)
 
 async function update1(obj, id) {
     console.log(id);
     try {
-        let res = await fetch(`http://localhost:4500/users/update/${id}`, {
+        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/users/update/${id}`, {
             body: JSON.stringify(obj),
             headers: {
                 "Content-Type": "application/json",
@@ -46,6 +83,7 @@ async function update1(obj, id) {
 
         let out = await res.json();
         console.log(out);
+        alert("Proifle Updated")
 
     } catch (error) {
         console.log(error);
@@ -53,14 +91,14 @@ async function update1(obj, id) {
 }
 
 let del = document.querySelector("#delete");
-del.addEventListener("click", function() {
+del.addEventListener("click", function () {
     let id = user._id
     del1(id);
 });
 async function del1(id) {
     console.log(id);
     try {
-        let res = await fetch(`http://localhost:4500/users/delete/${id}`, {
+        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/users/delete/${id}`, {
 
             headers: {
                 "Content-Type": "application/json",
@@ -77,3 +115,27 @@ async function del1(id) {
         console.log(error);
     }
 }
+
+async function userdata(id) {
+
+    try {
+        let out = await fetch(`https://erin-shiny-lizard.cyclic.app/users/data/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                // Authorization:token
+            }
+        });
+        let res = await out.json();
+        console.log(res);
+        nameInput.value = res.name;
+        mobileInput.value = res.mobile;
+        emailInput.value = res.email;
+        passwordInput.value = res.password || "";
+        imageInput.value = res.image || "";
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+userdata(id)

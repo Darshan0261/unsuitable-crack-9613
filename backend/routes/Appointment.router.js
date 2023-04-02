@@ -8,13 +8,13 @@ const appointmentRouter = express.Router();
 
 // Get all appointments
 appointmentRouter.get('/', authentication, async (req, res) => {
-    const { status } = req.query;
+    const query = req.query;
     const { token } = req.body;
 
     if (token.role == 'studio') {
         try {
-            if (status) {
-                const appointments = await AppointmentModel.find({ studio_id: token.id, status })
+            if (query) {
+                const appointments = await AppointmentModel.find({ studio_id: token.id, ...query })
                 return res.send(appointments)
             }
             const appointments = await AppointmentModel.find({ studio_id: token.id })
@@ -24,8 +24,8 @@ appointmentRouter.get('/', authentication, async (req, res) => {
         }
     } else {
         try {
-            if (status) {
-                const appointments = await AppointmentModel.find({ user_id: token.id, status })
+            if (query) {
+                const appointments = await AppointmentModel.find({ user_id: token.id, ...query })
                 return res.send(appointments)
             }
             const appointments = await AppointmentModel.find({ user_id: token.id })
@@ -100,7 +100,7 @@ appointmentRouter.patch('/reject/:id', authentication, async (req, res) => {
         const appointment = await AppointmentModel.findOne({ _id: id, user_id });
       console.log(appointment)
         if (appointment) {
-            await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Cancelled' })
+            await AppointmentModel.findOneAndUpdate({ _id: id }, { status: 'Rejected' })
             res.send({ message: 'Appointment Cancelled' })
             return
         } else {

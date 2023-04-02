@@ -25,7 +25,13 @@
     <section>
       <div class="main">
         <div class="appointment-parent">
-          <p>Appointment Details</p>
+          <p>Appointment Details</p> 
+          <select name="status-filter" id="status-filter">
+            <option value="Pending">Pending</option>
+            <option value="Accepted">Accepted</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+          <input type="date" name="date-filter" id="date-filter">
           <div class="appointment-child">
             <table>
               <thead>
@@ -35,20 +41,12 @@
                   <th>Date</th>
                   <th>Start time</th>
                   <th>End time</th>
-                  <th>Pending</th>
-                  <th>Delete</th>
+                  <th>Accept</th>
+                  <th>Reject</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Ananya Kumari Singh</td>
-                  <td>6289020032</td>
-                  <td>2023-04-20</td>
-                  <td>1:00 PM</td>
-                  <td>5:00 PM</td>
-                  <td class="accept"><button class="custom-btn btn-3"><span>Accept</span></button></td>
-                  <td class="reject"><button class="custom-btn btn-5"><span>Reject</span></button></td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
