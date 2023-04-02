@@ -27,10 +27,11 @@ if(name==""||mobile==""||email==""){
 const token = JSON.parse(localStorage.getItem("token"));
 const user = JSON.parse(localStorage.getItem("user"));
 
-// console.log(token);
+console.log(token);
+console.log(user);
 
-let id = user._id
-
+let id = user.id
+console.log(id)
 
 async function update1(obj, id) {
     console.log(id);
@@ -46,6 +47,7 @@ async function update1(obj, id) {
 
         let out = await res.json();
         console.log(out);
+        alert("Proifle Updated")
 
     } catch (error) {
         console.log(error);
@@ -76,4 +78,8 @@ async function del1(id) {
     } catch (error) {
         console.log(error);
     }
+}
+
+async function userdata(id){
+    
 }
