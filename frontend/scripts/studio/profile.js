@@ -1,7 +1,7 @@
-let url = "https://erin-shiny-lizard.cyclic.app/"
+let url = "https://erin-shiny-lizard.cyclic.app/";
 
-const id = localStorage.getItem(id);
-
+const id = JSON.parse(localStorage.getItem("user")).id;
+const token = JSON.parse(localStorage.getItem("token"));
 
 //  ================ POP-UP PAGE =================
 
@@ -18,7 +18,6 @@ function editProfileForm() {
   prevstudioName = document.querySelector("#studio-name");
   prevNumber = document.querySelector("#photographer-number");
   prevPrice = document.querySelector("#price");
-  console.log(prevPrice.innerText);
   document.querySelector("#edit_name").value = prevstudioName.innerText;
   document.querySelector("#edit_number").value = prevNumber.innerText;
   document.querySelector("#edit_price").value = +prevPrice.innerText;
@@ -43,16 +42,13 @@ let address = document.getElementById("address");
 
 async function fetchStudio() {
   try {
-    let res = await fetch(
-      `${url}studio/:${id}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: localstorage.getItem("token"),
-        },
-      }
-    );
+    let res = await fetch(`${url}studios/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+    });
     if (res.ok) {
       let studios = await res.json();
       // console.log(studios)
@@ -69,31 +65,42 @@ function displayProfileDetails(data) {
   console.log(data);
   Pname.innerText = data.name;
   number.innerText = data.mobile;
-  address.innerText = `${data.street} ${data.city}, ${data.state}`;
+  address.innerText = `${data.street} ${data.city}, ${data.state} - ${data.zip_code}`;
   startTime.innerText = data.start_time;
   endTime.innerText = data.end_time;
-  profile_img.innerHTML = `<img width="90%" style="margin-left: 5%;" src=${data.profile_image} />`;
+  profile_img.innerHTML = `<img width="94%" style="margin-left: 3%;" src=${data.profile_image} />`;
   price.innerText = data.price;
   city.innerText = data.city;
 }
-
 
 //============> EDIT FORM UPDATE
 let editForm = document.querySelector("#edit_form");
 
 editForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  let data = {
-    name: editForm.edit_name,
-    mobile: editForm.edit_number,
-    price: editForm.edit_price,
+  let obj = {
+    name: editForm.edit_name.value,
+    mobile: editForm.edit_number.value,
+    price: editForm.edit_price.value,
   };
-  await fetch(`http://localhost:4500/studios/${id}`, {
-    method: "post",
-    Authorization: localStorage.getItem("itemname"),
-    body: JSON.stringify(data),
-  });
-  if (res.ok) {
-    alert("edited successfully.");
-  } else alert("Something went wrong while editing detials.");
+
+  try {
+    let data = await fetch(`${url}studios/update/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token
+      },
+      body: JSON.stringify(obj),
+    });
+
+      let res = await data.json();
+      console.log(res);
+      alert("edited successfully.");
+      window.location.reload();
+    
+  } catch (error) {
+    console.log(error);
+    // alert("Something went wrong while editing detials.");
+  }
 });
