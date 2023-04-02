@@ -82,7 +82,7 @@ body {
 .up {
     display: flex;
     justify-content: end;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     /* position: absolute; */
     right: 0;
 }
@@ -118,12 +118,12 @@ body {
 .child2 {
     width: 80%;
     height: 100vh;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     display: inline;
 }
 .mid{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     margin-top: 60px;
 }
 
