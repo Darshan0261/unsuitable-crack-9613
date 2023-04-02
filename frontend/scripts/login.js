@@ -26,14 +26,13 @@ async function login(event) {
       },
     });
     let data = await res.json();
-    console.log(data);
-    if (data) {
+    if (res.ok) {
       // Store the access token in the session storage
       console.log(data.user)
-      localStorage.setItem('token', JSON.stringify(data.token));
+      localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
-      localStorage.setItem('role', JSON.stringify(role));
-      localStorage.setItem('userName', JSON.stringify(data.user.name));
+      localStorage.setItem('role', role);
+      localStorage.setItem('userName', data.user.name);
 
       alert(data.message);
       window.location = "../index.html";

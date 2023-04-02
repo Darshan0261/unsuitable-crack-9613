@@ -5,24 +5,24 @@ let id = JSON.parse(localStorage.getItem("individual_id"));
 
 
 let fetching_data = async (id) => {
-    
+
     try {
         let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios/${id}`);
         // console.log(res)
-    let data = await res.json();
-    // console.log(data)
-    let arr=[];
-    arr.push(data);
-    renderData(arr);
+        let data = await res.json();
+        // console.log(data)
+        let arr = [];
+        arr.push(data);
+        renderData(arr);
     } catch (error) {
         console.log(error.message)
     }
-   
+
     //  renderData(data);
 }
 
-   
-    
+
+
 fetching_data(id);
 let main_div = document.querySelector("#main_div");
 let renderData = (data) => {
@@ -57,77 +57,79 @@ let renderData = (data) => {
     `
     }).join("")}`
 }
-let date_value=document.getElementById("date_value"); 
-let date_btn=document.getElementById("date_btn");
-let studio_id=JSON.parse(localStorage.getItem("individual_id"));
+let date_value = document.getElementById("date_value");
+let date_btn = document.getElementById("date_btn");
+let studio_id = JSON.parse(localStorage.getItem("individual_id"));
 // console.log(studio_id)
-async function trigger(){
-    let obj={
-        date:date_value.value
+async function trigger() {
+    let obj = {
+        date: date_value.value
     }
     console.log(studio_id)
     console.log(obj)
-   let res= await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/${studio_id}`,{
-        method:"POST",
-        headers:{
-          
-            "Content-Type":"application/json"
+    let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/${studio_id}`, {
+        method: "POST",
+        headers: {
+
+            "Content-Type": "application/json"
         },
-        body:JSON.stringify(obj)
+        body: JSON.stringify(obj)
     })
     let data = await res.json();
-
-    console.log(data)
-    renderTime(data)
-
+    if (res.ok) {
+        console.log(data)
+        renderTime(data)
+    } else {
+        alert(data.message)
+    }
 }
-let flag=false;
-document.querySelector(".slots_div").style.display="none";
-let slot_div=document.querySelector(".slots_div_ul");
-let renderTime=(data)=>{
-    document.querySelector(".slots_div").style.display="block";
-        slot_div.innerHTML=`
-        ${data.map((elem)=>{
-            return `
+let flag = false;
+document.querySelector(".slots_div").style.display = "none";
+let slot_div = document.querySelector(".slots_div_ul");
+let renderTime = (data) => {
+    document.querySelector(".slots_div").style.display = "block";
+    slot_div.innerHTML = `
+        ${data.map((elem) => {
+        return `
                 
                 <li>${elem.start_time} - ${elem.end_time}</li>
                 
             
             `
-        }).join("")}
+    }).join("")}
     `
-    
-    
-    
+
+
+
 }
-let start_time=document.getElementById("start_time");
-let end_time=document.getElementById("end_time");
-async function book_slot(){
-    let obj={
-        start_time:start_time.value,
-        end_time:end_time.value,
-        date:date_value.value
+let start_time = document.getElementById("start_time");
+let end_time = document.getElementById("end_time");
+async function book_slot() {
+    let obj = {
+        start_time: start_time.value,
+        end_time: end_time.value,
+        date: date_value.value
     }
     console.log(obj)
-    let res=await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/book/${studio_id}`,{
-        method:"POST",
-        headers:{
-            authorization:localStorage.getItem("token"),
-            "Content-Type":"application/json"
+    let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/book/${studio_id}`, {
+        method: "POST",
+        headers: {
+            authorization: localStorage.getItem("token"),
+            "Content-Type": "application/json"
 
         },
-        body:JSON.stringify(obj)
+        body: JSON.stringify(obj)
     })
-    let data =await res.json();
+    let data = await res.json();
     alert(data.message);
-    if(data.message=="Slot not available on given time"){
+    if (data.message == "Slot not available on given time") {
         alert(data.message);
     }
-    else{
+    else {
         alert(data.message);
-        window.location.href="./users/users.html"
+        // window.location.href="./users/users.html"
     }
-   
+
 
 
 }

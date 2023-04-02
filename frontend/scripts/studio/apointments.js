@@ -2,12 +2,11 @@ const tableBody = document.querySelector('tbody');
 const tableHead = document.querySelector('thead');
 const status_filter = document.querySelector('#status-filter')
 const date_filter = document.querySelector('#date-filter')
-const token = JSON.parse(localStorage.getItem('token'))
+const token = localStorage.getItem('token')
 
 let arr = [];
 const baseURL = 'https://erin-shiny-lizard.cyclic.app';
 
-fetchAppointments()
 
 async function fetchAppointments() {
   let res = await fetch(`${baseURL}/appointment`, {
@@ -19,6 +18,7 @@ async function fetchAppointments() {
   let data;
   if (res.ok) {
     data = await res.json();
+    console.log(data)
     arr = data;
     displayPendingAppointment(arr)
   } else {
@@ -26,6 +26,7 @@ async function fetchAppointments() {
   }
 }
 
+fetchAppointments()
 
 // async function fetchUserDetails(appointments) {
 //   appointments.forEach(async (app) => {
@@ -222,10 +223,11 @@ async function acceptAppointment(id) {
     return;
   }
   alert('Appointment Accepted')
+  fetchAppointments();
 }
 
 async function declineAppointment(id) {
-  let res = await fetch(`${baseURL}/appointment/decline/${id}`, {
+  let res = await fetch(`${baseURL}/appointment/reject/${id}`, {
     method: 'PATCH',
     headers: {
       'Authorization': token,
@@ -236,7 +238,8 @@ async function declineAppointment(id) {
     alert(data.message);
     return;
   }
-  alert('Appointment Accepted')
+  alert('Appointment Rejected')
+  fetchAppointments()
 }
 
 // let acceptBtns = document.querySelectorAll(".accept");

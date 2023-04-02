@@ -60,7 +60,7 @@ update.addEventListener("click", (e) => {
     }
 })
 
-const token = JSON.parse(localStorage.getItem("token"));
+const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
 
 console.log(token);
