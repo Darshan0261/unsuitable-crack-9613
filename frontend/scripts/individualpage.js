@@ -112,7 +112,7 @@ async function book_slot(){
     let res=await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/book/${studio_id}`,{
         method:"POST",
         headers:{
-            authorization:JSON.parse(localStorage.getItem("token")),
+            authorization:localStorage.getItem("token"),
             "Content-Type":"application/json"
 
         },
