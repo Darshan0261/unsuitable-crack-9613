@@ -1,3 +1,8 @@
+let url = "https://erin-shiny-lizard.cyclic.app/"
+
+const id = localStorage.getItem(id);
+
+
 //  ================ POP-UP PAGE =================
 
 let obj = {};
@@ -39,12 +44,12 @@ let address = document.getElementById("address");
 async function fetchStudio() {
   try {
     let res = await fetch(
-      `http://localhost:4500/studios/6426794c5eaa668f464f4bf1`,
+      `${url}studio/:${id}`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+          Authorization: localstorage.getItem("token"),
         },
       }
     );
@@ -67,7 +72,7 @@ function displayProfileDetails(data) {
   address.innerText = `${data.street} ${data.city}, ${data.state}`;
   startTime.innerText = data.start_time;
   endTime.innerText = data.end_time;
-  profile_img.innerHTML = `<img src=${data.profile_image} />`;
+  profile_img.innerHTML = `<img width="90%" style="margin-left: 5%;" src=${data.profile_image} />`;
   price.innerText = data.price;
   city.innerText = data.city;
 }
