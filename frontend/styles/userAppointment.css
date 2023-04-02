@@ -104,8 +104,8 @@ body {
 
 .dat {
     margin-top: 30px;
-    margin-right: 80px;
-    width: 180px;
+    margin-right: 190px;
+    width: 150px;
     padding: 12px;
     border: 1px solid black;
     display: grid;
@@ -143,4 +143,29 @@ table {
   
   tr:nth-child(even) {
     background-color: #f2f2f2;
+  }
+
+  #date-filt{
+    
+    margin-top: 33px;
+    margin-right: 25px;
+  }
+
+  #date-filter{
+    background-color: burlywood;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .cancelbtn{
+    background-color: turquoise;
+  border: none; 
+  color: white; 
+  padding: 10px 20px; 
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block; 
+  font-size: 16px; 
+  margin: 4px 2px; 
+  cursor: pointer; 
   }
