@@ -12,22 +12,7 @@ const { AppointmentModel } = require('../models/Appoinment.model');
 const{default: mongoose}= require("mongoose");
 const userRouter = express.Router();
 
-userRouter.get('/data/:id',async(req,res)=>{
-    let id= req.params["id"];
-    const ObjectId= mongoose.Types.ObjectId;
 
-    try {
-        const _id= new ObjectId(id);
-        const user= await UserModel.aggregate([{$match:{_id :_id}},{$project:{password:0}}])
-        if(user.length ==0){
-            return res.status(404).send({message:'User not found'})
-        }
-        return res.send(user[0]);
-    } catch (error) {
-        return res.status(501).send({message: error.message})
-    }
-
-})
 
 userRouter.post('/signup', async (req, res) => {
     const { name, mobile, password } = req.body;
