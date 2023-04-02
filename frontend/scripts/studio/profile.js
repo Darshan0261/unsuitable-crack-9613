@@ -137,3 +137,9 @@ editForm.addEventListener("submit", async (e) => {
     // alert("Something went wrong while editing detials.");
   }
 });
+
+
+function logout(){
+  localStorage.clear();
+  window.location.href = "../../index.html";
+}
