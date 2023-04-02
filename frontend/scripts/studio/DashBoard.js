@@ -1,6 +1,3 @@
-/*
-
-*/
 
 async function fetchStudio() {
     try {
@@ -27,3 +24,7 @@ function displayStudiosLength(data) {
     studioCount.innerHTML = `<b>${data.length}</b>`;
 }
 
+function logout(){
+    localStorage.clear();
+    window.location.href = "../../index.html";
+}
