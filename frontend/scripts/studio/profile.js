@@ -1,4 +1,5 @@
 let url = "https://erin-shiny-lizard.cyclic.app/";
+// let url = "https://localhost:4500/"
 
 const id = JSON.parse(localStorage.getItem("user")).id;
 const token = JSON.parse(localStorage.getItem("token"));
@@ -29,6 +30,17 @@ function closeProfileForm() {
 
 // ========================= FETCH DATA ========================
 
+// let day = {
+//   0: "Mon",
+//   1: "Tue",
+//   2: "Wed",
+//   3: "Thu",
+//   4: "Fri",
+//   5: "Sat",
+//   6: "Sun",
+// };
+// console.log(day)
+
 let profile_img = document.getElementById("profile-img");
 let Pname = document.getElementById("studio-name");
 let number = document.getElementById("photographer-number");
@@ -39,6 +51,7 @@ let startTime = document.getElementById("start-time");
 let endTime = document.getElementById("end-time");
 let price = document.getElementById("price");
 let address = document.getElementById("address");
+let days = document.getElementById("working-days");
 
 async function fetchStudio() {
   try {
@@ -71,7 +84,28 @@ function displayProfileDetails(data) {
   profile_img.innerHTML = `<img width="94%" style="margin-left: 3%;" src=${data.profile_image} />`;
   price.innerText = data.price;
   city.innerText = data.city;
+  function workingDays(working_days) {
+    const day = {
+      '0': 'Mon',
+      '1': 'Tue',
+      '2': 'Wed',
+      '3': 'Thu',
+      '4': 'Fri',
+      '5': 'Sat',
+      '6': 'Sun'
+    };
+    
+    const dayNames = [];
+    
+    for(let i=0; i<working_days.length; i++) {
+      dayNames.push(" "+day[working_days[i]]);
+    }    
+    return dayNames;
+  }
+  days.innerText = workingDays(data.working_days);
 }
+
+
 
 //============> EDIT FORM UPDATE
 let editForm = document.querySelector("#edit_form");
@@ -89,16 +123,15 @@ editForm.addEventListener("submit", async (e) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token
+        Authorization: token,
       },
       body: JSON.stringify(obj),
     });
 
-      let res = await data.json();
-      console.log(res);
-      alert("edited successfully.");
-      window.location.reload();
-    
+    let res = await data.json();
+    console.log(res);
+    alert("edited successfully.");
+    window.location.reload();
   } catch (error) {
     console.log(error);
     // alert("Something went wrong while editing detials.");
