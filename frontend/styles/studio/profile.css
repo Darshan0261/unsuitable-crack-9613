@@ -17,7 +17,7 @@ li {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .profile-child-div {
@@ -29,8 +29,8 @@ li {
   margin-top: 10%;
 }
 .profile-child-div img {
-  width: 50%;
-  margin-left: 25%;
+  width: 90%;
+  margin-left: 5%;
   padding: 6% 0%;
 }
 /* .profile-child-div > button {
@@ -109,7 +109,7 @@ li ~ div {
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
-  margin-left: 38%;
+  margin-left: 30%;
   font-size: 15px;
 }
 .btn-14 {
@@ -249,16 +249,16 @@ select{
 
 @media only screen and (min-width: 800px) and (max-width: 991px) {
   .profile-child-div {
-    width: 50%;
+    width: 45%;
   }
 
   .profile-other-info {
-    width: 45%;
+    width: 50%;
   }
 }
 
 /* ------------small screen------------------- */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
   .profile-maindiv {
     display: flex;
     flex-direction: column;
