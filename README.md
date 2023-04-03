@@ -20,7 +20,7 @@ This project is deployed on netlify here - [Strike a Pose](https://rococo-chimer
 
 ---
 
-## Our Team Members ❤️
+## Our Team Members ❤
 
 - [Darshan: Team Leader](https://www.linkedin.com/in/darshan0261/)
 - [Nikhil](https://www.linkedin.com/in/nikhil-kumar-67442a201/)
