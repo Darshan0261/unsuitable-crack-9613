@@ -1,5 +1,5 @@
   # Strike a Pose
-A photograhy management system, where user can book appointment and studio can access the appointments.
+A photograhy booking appointment system, where user can book appointment and studio can access the appointments.
 
 ## Deployment
 
