@@ -80,7 +80,7 @@ First, you have to have to go to the `Home Page`. There you have to click on `Si
 ![Studio Dashboard](https://user-images.githubusercontent.com/112763650/229427965-f969485a-03a8-4735-b009-6a01bccb7289.png)
 ![User Dashboard](https://user-images.githubusercontent.com/112763650/229427968-5b75b98d-8197-4e56-8335-c332a1a5cbf1.png)![Book Studio](https://user-images.githubusercontent.com/112763650/229428322-aad8a865-2afb-4a3e-bb6e-b02fd353da9a.png)
 
-
+---
 
 ## Glance of the website 🖼️
 ![Screenshot 2023-04-03 100209](https://user-images.githubusercontent.com/112763650/229418519-24fb8d42-f292-4b5f-becd-2098273dd780.png)
@@ -93,7 +93,7 @@ First, you have to have to go to the `Home Page`. There you have to click on `Si
 ![Screenshot 2023-04-03 100303](https://user-images.githubusercontent.com/112763650/229418602-c8f933e6-4087-4b6a-9bf3-987969375dd0.png)
 ![Screenshot 2023-04-03 100315](https://user-images.githubusercontent.com/112763650/229418622-8a5e16c8-3b0f-42e6-a44f-4a134a05c3ce.png)
 
-
+---
 
 
 Thanks you for Checking our Project 🙏🏻
