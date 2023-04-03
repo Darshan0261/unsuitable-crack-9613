@@ -78,7 +78,8 @@ First, you have to have to go to the `Home Page`. There you have to click on `Si
 
 ![HDD](https://user-images.githubusercontent.com/112763650/229427956-a17d0576-85aa-43fd-8ca9-df56722a9d1b.png)
 ![Studio Dashboard](https://user-images.githubusercontent.com/112763650/229427965-f969485a-03a8-4735-b009-6a01bccb7289.png)
-![User Dashboard](https://user-images.githubusercontent.com/112763650/229427968-5b75b98d-8197-4e56-8335-c332a1a5cbf1.png)
+![User Dashboard](https://user-images.githubusercontent.com/112763650/229427968-5b75b98d-8197-4e56-8335-c332a1a5cbf1.png)![Book Studio](https://user-images.githubusercontent.com/112763650/229428322-aad8a865-2afb-4a3e-bb6e-b02fd353da9a.png)
+
 
 
 # Glance of the website
