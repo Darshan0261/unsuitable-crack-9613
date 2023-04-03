@@ -1,4 +1,4 @@
-![logo-with-bg](https://user-images.githubusercontent.com/112763650/229430119-73bf1a10-4c86-40e4-9f88-afba19ed7a3d.png)   # Strike a Pose
+  # Strike a Pose
 A photograhy management system, where user can book appointment and studio can access the appointments.
 
 ## Deployment
