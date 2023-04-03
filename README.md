@@ -3,7 +3,7 @@ A photograhy management system, where user can book appointment and studio can a
 
 ## Deployment
 
-This project is deployed on netlify here - [Strike a Pose]()
+This project is deployed on netlify here - [Strike a Pose](https://magenta-cupcake-220f7a.netlify.app/)
 
 
 
@@ -67,9 +67,10 @@ First, you have to have to go to the `Home Page`. There you have to click on `Si
 - `MongoDB` 
 - `JSONWEBTOKEN`
 - `Bcrypt`
+- `Redis`
 
 ----
-- `Frontend link` :
+- `Frontend link` : https://magenta-cupcake-220f7a.netlify.app/
 - `Backend link`  : https://erin-shiny-lizard.cyclic.app/
 ----
 
