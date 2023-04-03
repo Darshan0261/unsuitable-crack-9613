@@ -3,7 +3,7 @@ A photograhy management system, where user can book appointment and studio can a
 
 ## Deployment
 
-This project is deployed on netlify here - [Strike a Pose](https://magenta-cupcake-220f7a.netlify.app/)
+This project is deployed on netlify here - [Strike a Pose](https://rococo-chimera-6028d8.netlify.app/index.html)
 
 
 
@@ -70,7 +70,7 @@ First, you have to have to go to the `Home Page`. There you have to click on `Si
 - `Redis`
 
 ----
-- `Frontend link` : https://magenta-cupcake-220f7a.netlify.app/
+- `Frontend link` : https://rococo-chimera-6028d8.netlify.app/index.html
 - `Backend link`  : https://erin-shiny-lizard.cyclic.app/
 ----
 
