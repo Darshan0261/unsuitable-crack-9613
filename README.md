@@ -26,7 +26,7 @@ This project is deployed on netlify here - [Strike a Pose]()
 - [Nikhil](https://www.linkedin.com/in/nikhil-kumar-67442a201/)
 - [Abhi](https://www.linkedin.com/in/abhi-panchal-29721423a/)
 - [Asif](https://www.linkedin.com/in/asif-patel-389b831a2/)
-- [Ananya Kumari Singh](https://www.linkedin.com/in/ananya-kumari-singh-b06564248/)
+- [Ananya](https://www.linkedin.com/in/ananya-kumari-singh-b06564248/)
 
 ---
 
@@ -72,13 +72,14 @@ First, you have to have to go to the `Home Page`. There you have to click on `Si
 - `Frontend link` :
 - `Backend link`  : https://erin-shiny-lizard.cyclic.app/
 ----
+
+![Screenshot 2023-04-03 100209](https://user-images.githubusercontent.com/112763650/229418519-24fb8d42-f292-4b5f-becd-2098273dd780.png)
 ![Screenshot 2023-04-03 095959](https://user-images.githubusercontent.com/112763650/229418416-9ff24489-4c82-4dc5-aecc-5d64c18d1f98.png)
 ![Screenshot 2023-04-03 095323](https://user-images.githubusercontent.com/112763650/229418339-25b9c8a6-146c-441f-8b8d-78b7bf394c6a.png)
 ![Screenshot 2023-04-03 095932](https://user-images.githubusercontent.com/112763650/229418379-28aab616-b3db-4a39-9d49-90aeb9c17eac.png)
 ![Screenshot 2023-04-03 095953](https://user-images.githubusercontent.com/112763650/229418398-27512d98-4eff-4f68-96ef-082ee507cfd2.png)
 ![Screenshot 2023-04-03 100120](https://user-images.githubusercontent.com/112763650/229418482-e34ad59d-fb8d-448c-b97a-c948e4fc9dd3.png)
 ![Screenshot 2023-04-03 100152](https://user-images.githubusercontent.com/112763650/229418502-bb25fa67-cc12-4e79-b0a3-c2b8ea8b2bc3.png)
-![Screenshot 2023-04-03 100209](https://user-images.githubusercontent.com/112763650/229418519-24fb8d42-f292-4b5f-becd-2098273dd780.png)
 ![Screenshot 2023-04-03 100303](https://user-images.githubusercontent.com/112763650/229418602-c8f933e6-4087-4b6a-9bf3-987969375dd0.png)
 ![Screenshot 2023-04-03 100315](https://user-images.githubusercontent.com/112763650/229418622-8a5e16c8-3b0f-42e6-a44f-4a134a05c3ce.png)
 
