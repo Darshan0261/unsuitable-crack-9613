@@ -44,10 +44,11 @@ This project is deployed on netlify here - [Strike a Pose](https://rococo-chimer
 - `My account`: It is the profile page of the user, can update his details.
 
 #### Studio Side
-- `Dashboard`: Some infromation realated to appointment, user, admin, etc.
-- `Profile`: It is the profile page of the Sudio, can edit their details.
+- `Dashboard`: Some information related to appointment, user, admin, etc.
+- `Profile`: It is the profile page of the Studio, can edit their details.
 - `Albums`: Studio's albums.
-- `Appointments`: Users can check their appointment or appointments and filter it by accpeted or rejected.
+- `Appointments`: Users can check their appointment or appointments and filter it by accepted or rejected.
+- `Logout`
 
 ---
 
