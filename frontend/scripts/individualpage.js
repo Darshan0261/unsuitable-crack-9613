@@ -7,7 +7,7 @@ let id = JSON.parse(localStorage.getItem("individual_id"));
 let fetching_data = async (id) => {
 
     try {
-        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios/${id}`);
+        let res = await fetch(`https://photo-gu0c.onrender.com/studios/${id}`);
         // console.log(res)
         let data = await res.json();
         // console.log(data)
@@ -67,7 +67,7 @@ async function trigger() {
     }
     console.log(studio_id)
     console.log(obj)
-    let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/${studio_id}`, {
+    let res = await fetch(`https://photo-gu0c.onrender.com/studios/slots/${studio_id}`, {
         method: "POST",
         headers: {
 
@@ -106,7 +106,7 @@ async function book_slot() {
         date: date_value.value
     }
     console.log(obj)
-    let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios/slots/book/${studio_id}`, {
+    let res = await fetch(`https://photo-gu0c.onrender.com/studios/slots/book/${studio_id}`, {
         method: "POST",
         headers: {
             authorization: localStorage.getItem("token"),

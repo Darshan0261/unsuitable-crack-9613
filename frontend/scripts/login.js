@@ -16,7 +16,7 @@ async function login(event) {
     console.log(role)
 
 
-    let logurl = `https://erin-shiny-lizard.cyclic.app/${role}/login`;
+    let logurl = `https://photo-gu0c.onrender.com/${role}/login`;
 
     let res = await fetch(logurl, {
       method: "POST",
