@@ -72,7 +72,7 @@ console.log(id)
 async function update1(obj, id) {
     console.log(id);
     try {
-        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/users/update/${id}`, {
+        let res = await fetch(`https://photo-gu0c.onrender.com/users/update/${id}`, {
             body: JSON.stringify(obj),
             headers: {
                 "Content-Type": "application/json",
@@ -98,7 +98,7 @@ del.addEventListener("click", function () {
 async function del1(id) {
     console.log(id);
     try {
-        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/users/delete/${id}`, {
+        let res = await fetch(`https://photo-gu0c.onrender.com/users/delete/${id}`, {
 
             headers: {
                 "Content-Type": "application/json",
@@ -119,7 +119,7 @@ async function del1(id) {
 async function userdata(id) {
 
     try {
-        let out = await fetch(`https://erin-shiny-lizard.cyclic.app/users/data/${id}`, {
+        let out = await fetch(`https://photo-gu0c.onrender.com/users/data/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

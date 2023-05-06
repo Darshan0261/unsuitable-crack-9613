@@ -1,7 +1,7 @@
 
 async function fetchStudio() {
     try {
-        let res = await fetch(`http://localhost:4500/studios/`, {
+        let res = await fetch(`https://photo-gu0c.onrender.com/studios/`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-let url = "https://erin-shiny-lizard.cyclic.app/";
+let url = "https://photo-gu0c.onrender.com/";
 // let url = "https://localhost:4500/"
 
 const id = JSON.parse(localStorage.getItem("user")).id;
