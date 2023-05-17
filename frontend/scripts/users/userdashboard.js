@@ -11,7 +11,7 @@ async function dashboard() {
 
     let res;
     try {
-        res = await fetch(`https://erin-shiny-lizard.cyclic.app/appointment/`, {
+        res = await fetch(`https://photo-gu0c.onrender.com/appointment/`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -85,7 +85,7 @@ logbtn.addEventListener("click",out);
 
 async function out(){
     try {
-        let res=await fetch(`https://erin-shiny-lizard.cyclic.app/users/logout`,{
+        let res=await fetch(`https://photo-gu0c.onrender.com/users/logout`,{
             
         // body:,
         headers:{

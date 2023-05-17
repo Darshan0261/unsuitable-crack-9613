@@ -15,7 +15,7 @@ async function dashboard() {
 
     let res;
     try {
-        res = await fetch(`https://erin-shiny-lizard.cyclic.app/appointment/`, {
+        res = await fetch(`https://photo-gu0c.onrender.com/appointment/`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function display1(out) {
     out.forEach(async (ele) => {
         let row = document.createElement("tr");
 
-        let res = await fetch(`https://erin-shiny-lizard.cyclic.app/studios/${ele.studio_id}`)
+        let res = await fetch(`https://photo-gu0c.onrender.com/studios/${ele.studio_id}`)
 
         let studio = await res.json()
 
@@ -104,7 +104,7 @@ function display1(out) {
         // let dat1=JSON.parse(data1)
 
         try {
-            const res = await fetch(`https://erin-shiny-lizard.cyclic.app/appointment/reject/${apid}`, {
+            const res = await fetch(`https://photo-gu0c.onrender.com/appointment/reject/${apid}`, {
                 body: JSON.stringify({ status: data }),
                 headers: {
                     "Content-Type": "application/json",
@@ -164,7 +164,7 @@ sort.addEventListener("change", () => {
 
 date_filter.addEventListener('change', async () => {
     const date = date_filter.value;
-    const res = await fetch(`https://erin-shiny-lizard.cyclic.app/appointment?date=${date}`, {
+    const res = await fetch(`https://photo-gu0c.onrender.com/appointment?date=${date}`, {
         headers: {
             Authorization: token
         }

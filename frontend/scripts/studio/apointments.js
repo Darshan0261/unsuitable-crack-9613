@@ -5,7 +5,7 @@ const date_filter = document.querySelector("#date-filter");
 const token = localStorage.getItem("token");
 
 let arr = [];
-const baseURL = "https://erin-shiny-lizard.cyclic.app";
+const baseURL = 'https://photo-gu0c.onrender.com';
 
 async function fetchAppointments() {
   let res = await fetch(`${baseURL}/appointment`, {
