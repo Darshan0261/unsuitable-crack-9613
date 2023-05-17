@@ -243,45 +243,6 @@ async function declineAppointment(id) {
   fetchAppointments();
 }
 
-// let acceptBtns = document.querySelectorAll(".accept");
-// let rejectBtns = document.querySelectorAll(".reject");
-
-// acceptBtns.forEach((el) => {
-//   el.addEventListener("click", () => {
-//     el.innerHTML = "<b>ACCEPTED</b>";
-//   });
-// });
-
-// rejectBtns.forEach((el) => {
-//   el.addEventListener("click", () => {
-//     el.innerHTML = "<b>REJECTED</b>";
-//     el.previousElementSibling.innerHTML = "-"
-//     el.parentElement.classList.add('rejected')
-
-//     // deleteAppointmetn(el.parentElement.id)
-//   });
-// });
-
-// async function deleteAppointmetn(id) {
-//   await fetch(`/url/${id}`, {
-//     method: "Post",
-//     authorization: localStorage.getItem("token"),
-//     body: id,
-//   });
-//   if (res.ok) {
-//     alert("Appointment Deleted");
-//   } else alert("Something went wrong while delting the appointment");
-// }
-// async function acceptAppointment(id) {
-//   await fetch(`/url/${id}`, {
-//     method: "Post",
-//     authorization: localStorage.getItem("token"),
-//     body: id,
-//   });
-//   if (res.ok) {
-//     alert("Appointment Accepted");
-//   } else alert("Something went wrong while accepting the appointment");
-// }
 
 function logout() {
   localStorage.clear();
